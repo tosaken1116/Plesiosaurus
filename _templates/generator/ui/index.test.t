@@ -10,7 +10,7 @@ describe("ui/<%= name %>", () => {
   it("title is exist", () => {
     render(<<%= name %> />);
 
-    const title = screen.getByText(/this is <%= name %> component/);
+    const title = screen.getByText(/this is ui of <%= name %>/);
 
     expect(title).toBeInTheDocument();
   });
