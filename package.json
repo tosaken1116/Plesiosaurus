@@ -2,8 +2,8 @@
     "name": "plesiosaurus",
     "private": true,
     "version": "0.0.0",
-    "type": "module",
     "scripts": {
+        "commitlint": "commitlint -e $GIT_PARAMS",
         "dev": "vite",
         "fmt": "prettier --write 'src/components/**/*.{ts,tsx}'",
         "test:unit": "vitest run --passWithNoTests",
@@ -27,6 +27,8 @@
         "react-dom": "^18.2.0"
     },
     "devDependencies": {
+        "@commitlint/cli": "^18.4.1",
+        "@commitlint/config-conventional": "^18.4.0",
         "@markuplint/jsx-parser": "^3.11.0",
         "@markuplint/react-spec": "^3.12.0",
         "@storybook/addon-essentials": "^7.5.3",
