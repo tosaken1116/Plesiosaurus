@@ -1,5 +1,5 @@
 ---
-to: src/components/ui/<%= name %>/index.stories.tsx
+to: src/components/<%= name %>/index.stories.tsx
 ---
 import { <%= name %> } from '.';
 

@@ -1,5 +1,5 @@
 ---
-to: src/components/ui/<%= name %>/index.test.tsx
+to: src/components/<%= name %>/index.test.tsx
 ---
 import { render, screen } from "@testing-library/react";
 
