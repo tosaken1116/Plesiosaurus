@@ -1,0 +1,24 @@
+on:
+    push:
+        branches:
+            - develop
+
+permissions:
+    contents: write
+    pull-requests: write
+
+name: release-please
+
+jobs:
+    release-please:
+        permissions: write-all
+        runs-on: ubuntu-latest
+        steps:
+            - uses: google-github-actions/release-please-action@v3
+              with:
+                  release-type: node
+                  package-name: plesiosaurus
+                  bump-minor-pre-major: true
+                  bump-patch-for-minor-pre-major: true
+              env:
+                  GITHUB_TOKEN: ${{ secrets.PAT }}
