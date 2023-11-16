@@ -1,0 +1,30 @@
+name: Create Release Branch from Tag
+
+on:
+    workflow_run:
+        workflows: ["release-please"]
+        branches: ["develop"]
+        types:
+            - completed
+
+jobs:
+    create-release-branch:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
+                  token: ${{ secrets.PAT }}
+
+            - name: Get latest tag
+              run: echo "LATEST_TAG=$(git describe --tags $(git rev-list --tags --max-count=1))" >> $GITHUB_ENV
+
+            - name: Create release branch
+              run: |
+                  git config --global user.email "actions@github.com"
+                  git config --global user.name "GitHub Actions"
+                  git checkout -b release-${{ env.LATEST_TAG }}-protected develop
+                  git push origin release-${{ env.LATEST_TAG }}-protected
+              env:
+                  MY_PERSONAL_TOKEN: ${{ secrets.PAT }}
