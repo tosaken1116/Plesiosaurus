@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.2](https://github.com/tosaken1116/Plesiosaurus/compare/v0.0.1...v0.0.2) (2023-11-29)
+
+
+### 📝 Miscellaneous
+
+* **deps-dev:** bump jsdom from 22.1.0 to 23.0.0 ([773eef7](https://github.com/tosaken1116/Plesiosaurus/commit/773eef7318dbf67d96cb2bbf6ecc6e966788de52))
+* **deps-dev:** bump vite from 4.5.0 to 5.0.2 ([fec62cd](https://github.com/tosaken1116/Plesiosaurus/commit/fec62cd4265c6c3cfe499923ceb91d3f936ba944))
+
 ## 0.0.1 (2023-11-16)
 
 
