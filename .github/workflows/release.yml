@@ -20,5 +20,15 @@ jobs:
                   package-name: plesiosaurus
                   bump-minor-pre-major: true
                   bump-patch-for-minor-pre-major: true
+                  changelog-types: '[
+                    {"type": "feat!", "section": "💥 Breaking"},
+                    {"type": "feat", "section": "🌈 Features"},
+                    {"type": "fix", "section": "🐛Bug Fixes"},
+                    {"type": "chore", "section": "📝 Miscellaneous"},
+                    {"type": "docs", "section": "📝 Miscellaneous"},
+                    {"type": "style", "section": "📝 Miscellaneous"},
+                    {"type": "refactor", "section": "📝 Miscellaneous"},
+                    {"type": "perf", "section": "📝 Miscellaneous"},
+                    {"type": "test", "section": "📝 Miscellaneous"}]'
               env:
                   GITHUB_TOKEN: ${{ secrets.PAT }}
