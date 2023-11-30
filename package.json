@@ -3,7 +3,26 @@
   "author": "Team Issei Absence",
   "license": "MIT",
   "version": "0.0.1",
-  "description": "A simple & animate-full UI component library.",
+  "description": "A simple & animate-full UI component library build with vanilla-extract.🍦🩵",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "./dist",
+    "./types"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "engines": {
+    "node": ">=v21.2.0"
+  },
   "scripts": {
     "commitlint": "commitlint -e $GIT_PARAMS",
     "dev": "vite",
