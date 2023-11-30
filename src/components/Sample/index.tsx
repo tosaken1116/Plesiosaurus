@@ -4,10 +4,10 @@ import { clsx } from "clsx";
 
 import { root } from "./index.css";
 
-type Props = {
+export type SampleProps = {
     className?: string;
 };
 
-export const Sample: FC<Props> = ({ className }) => (
+export const Sample: FC<SampleProps> = ({ className }) => (
     <p className={clsx(root, className)}>this is ui of Sample </p>
 );
