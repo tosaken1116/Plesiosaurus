@@ -1,92 +1,115 @@
 {
-    "name": "plesiosaurus",
-    "private": true,
-    "version": "0.0.2",
-    "scripts": {
-        "commitlint": "commitlint -e $GIT_PARAMS",
-        "dev": "vite",
-        "fmt": "prettier --write 'src/components/**/*.{ts,tsx}'",
-        "test:unit": "vitest run --passWithNoTests",
-        "build": "tsc && vite build",
-        "preview": "vite preview",
-        "check:lint": "eslint 'src/components/**/*.{ts,tsx}' --report-unused-disable-directives --max-warnings 0 --no-error-on-unmatched-pattern",
-        "check:cspell": "cspell -c ./cspell.config.json \"./src/components/**/*\" --unique --no-progress --no-summary --show-suggestions --no-must-find-files",
-        "check:markuplint": "markuplint -p \"./src/components/**/*.tsx\"",
-        "check:typecheck": "tsc --noEmit",
-        "check": "run-p check:* test:*",
-        "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build",
-        "new:ui": "hygen generator ui",
-        "ci:test-group": "run-p test:*",
-        "ci:check": "run-p check:*",
-        "commit": "cz",
-        "prepare": "husky install"
-    },
-    "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
-            "bun run check:lint --fix",
-            "bun run fmt"
-        ]
-    },
-    "dependencies": {
-        "@vanilla-extract/css": "^1.14.0",
-        "hygen": "^6.2.11",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
-    },
-    "devDependencies": {
-        "@commitlint/cli": "^18.4.1",
-        "@commitlint/config-conventional": "^18.4.0",
-        "@markuplint/jsx-parser": "^3.11.0",
-        "@markuplint/react-spec": "^3.12.0",
-        "@storybook/addon-essentials": "^7.5.3",
-        "@storybook/addon-interactions": "^7.5.3",
-        "@storybook/addon-links": "^7.5.3",
-        "@storybook/addon-onboarding": "^1.0.8",
-        "@storybook/blocks": "^7.5.3",
-        "@storybook/react": "^7.5.3",
-        "@storybook/react-vite": "^7.5.3",
-        "@storybook/testing-library": "^0.2.2",
-        "@testing-library/jest-dom": "^6.1.4",
-        "@testing-library/react": "^14.1.0",
-        "@types/jest": "^29.5.8",
-        "@types/react": "^18.2.15",
-        "@types/react-dom": "^18.2.7",
-        "@typescript-eslint/eslint-plugin": "^6.0.0",
-        "@typescript-eslint/parser": "^6.0.0",
-        "@vanilla-extract/recipes": "^0.5.1",
-        "@vanilla-extract/vite-plugin": "^3.9.1",
-        "@vitejs/plugin-react-swc": "^3.3.2",
-        "chromatic": "^9.0.0",
-        "clsx": "^2.0.0",
-        "commitizen": "^4.3.0",
-        "cspell": "^8.0.0",
-        "cz-conventional-changelog": "^3.3.0",
-        "eslint": "^8.45.0",
-        "eslint-config-prettier": "^9.0.0",
-        "eslint-plugin-import": "^2.29.0",
-        "eslint-plugin-jsx-a11y": "^6.8.0",
-        "eslint-plugin-react": "^7.33.2",
-        "eslint-plugin-react-hooks": "^4.6.0",
-        "eslint-plugin-react-refresh": "^0.4.3",
-        "eslint-plugin-storybook": "^0.6.15",
-        "eslint-plugin-unused-imports": "^3.0.0",
-        "jsdom": "^23.0.0",
-        "lint-staged": "^15.1.0",
-        "markuplint": "^3.14.0",
-        "npm-run-all": "^4.1.5",
-        "storybook": "^7.5.3",
-        "typescript": "^5.0.2",
-        "vite": "5.0.0",
-        "vitest": "^0.34.6",
-        "husky": "^8.0.0"
-    },
-    "volta": {
-        "node": "21.2.0"
-    },
-    "config": {
-        "commitizen": {
-            "path": "./node_modules/cz-conventional-changelog"
-        }
+  "name": "@plesiosaurus/ui",
+  "author": "Team Issei Absence",
+  "license": "MIT",
+  "version": "0.0.3",
+  "description": "A simple & animate-full UI component library built with vanilla-extract.🍦🩵",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
     }
+  },
+  "files": [
+    "./dist",
+    "./types"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "engines": {
+    "node": ">=21.2.0"
+  },
+  "scripts": {
+    "commitlint": "commitlint -e $GIT_PARAMS",
+    "dev": "vite",
+    "fmt": "prettier --write 'src/components/**/*.{ts,tsx}'",
+    "test:unit": "vitest run --passWithNoTests",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "check:lint": "eslint 'src/components/**/*.{ts,tsx}' --report-unused-disable-directives --max-warnings 0 --no-error-on-unmatched-pattern",
+    "check:cspell": "cspell -c ./cspell.config.json \"./src/components/**/*\" --unique --no-progress --no-summary --show-suggestions --no-must-find-files",
+    "check:markuplint": "markuplint -p \"./src/components/**/*.tsx\"",
+    "check": "run-p check:* test:*",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "new:ui": "hygen generator ui",
+    "ci:test-group": "run-p test:*",
+    "ci:check": "run-p check:*",
+    "commit": "cz",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
+      "bun run check:lint --fix",
+      "bun run fmt"
+    ]
+  },
+  "dependencies": {
+    "@vanilla-extract/css": "^1.14.0",
+    "hygen": "^6.2.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.1",
+    "@commitlint/config-conventional": "^18.4.0",
+    "@markuplint/jsx-parser": "^3.11.0",
+    "@markuplint/react-spec": "^3.12.0",
+    "@storybook/addon-essentials": "^7.5.3",
+    "@storybook/addon-interactions": "^7.5.3",
+    "@storybook/addon-links": "^7.5.3",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.3",
+    "@storybook/react": "^7.5.3",
+    "@storybook/react-vite": "^7.5.3",
+    "@storybook/testing-library": "^0.2.2",
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.0",
+    "@types/jest": "^29.5.8",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vanilla-extract/recipes": "^0.5.1",
+    "@vanilla-extract/vite-plugin": "^3.9.1",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "chromatic": "^9.0.0",
+    "clsx": "^2.0.0",
+    "commitizen": "^4.3.0",
+    "cspell": "^8.0.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-storybook": "^0.6.15",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "jsdom": "^23.0.0",
+    "lint-staged": "^15.1.0",
+    "markuplint": "^3.14.0",
+    "npm-run-all": "^4.1.5",
+    "storybook": "^7.5.3",
+    "typescript": "^5.0.2",
+    "vite": "5.0.4",
+    "vitest": "^0.34.6",
+    "husky": "^8.0.0"
+  },
+  "volta": {
+    "node": "21.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+}
 }

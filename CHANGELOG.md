@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/tosaken1116/Plesiosaurus/compare/v0.0.2...v0.0.3) (2023-12-01)
+
+
+### 🌈 Features
+
+* sampleコンポーネントのpublish ([cd74c06](https://github.com/tosaken1116/Plesiosaurus/commit/cd74c06b8652c54d0e033b59760a3687e7af2fc6))
+
 ## [0.0.2](https://github.com/tosaken1116/Plesiosaurus/compare/v0.0.1...v0.0.2) (2023-11-29)
 
 
