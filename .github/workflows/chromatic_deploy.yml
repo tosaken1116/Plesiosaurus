@@ -10,6 +10,7 @@ jobs:
     chromatic-deployment:
         # Operating System
         runs-on: ubuntu-latest
+        if: github.actor != 'dependabot[bot]'
 
         # Job steps
         steps:
