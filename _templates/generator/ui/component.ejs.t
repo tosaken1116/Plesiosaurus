@@ -1,8 +1,6 @@
 ---
 to: "<%= `src/components/${name}/index.tsx` %>"
 ---
-import type { FC } from 'react';
-
 export type <%= name %>Props = {};
 
 /**
@@ -12,6 +10,6 @@ export type <%= name %>Props = {};
  * @returns {JSX.Element}
  * @example <<%= name %> a={1} />
  */
-export const <%= name %>:FC<<%= name %>Props> = ({}) => {
+export const <%= name %> = ({}:<%= name %>Props) => {
   return <>this is ui of <%= name %> </>;
 };
