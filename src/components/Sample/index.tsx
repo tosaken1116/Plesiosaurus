@@ -1,13 +1,13 @@
-import type { FC } from "react";
+import type { FC } from 'react'
 
-import { clsx } from "clsx";
+import { clsx } from 'clsx'
 
-import { root } from "./index.css";
+import { root } from './index.css'
 
 export type SampleProps = {
-    className?: string;
-};
+  className?: string
+}
 
 export const Sample: FC<SampleProps> = ({ className }) => (
-    <p className={clsx(root, className)}>this is ui of Sample </p>
-);
+  <p className={clsx(root, className)}>this is ui of Sample </p>
+)

@@ -1,7 +1,7 @@
-import { Sample  } from './components/Sample';
+import { Sample } from './components/Sample'
 
-import type {SampleProps} from './components/Sample';
+import type { SampleProps } from './components/Sample'
 
-export { Sample };
+export { Sample }
 
-export type { SampleProps };
+export type { SampleProps }
