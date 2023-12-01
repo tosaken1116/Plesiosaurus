@@ -1,10 +1,10 @@
 ---
-to: "<%= `src/components/${name}/index.tsx` %>"
+to: "<%= `src/components/${name}/index.ts` %>"
 ---
-import type { FC } from 'react';
+import { <%= name %> } from "./index.tsx";
 
-type Props = {};
+import type { <%= name %>Props } from "./index.tsx";
 
-export const <%= name %>:FC<Props> = ({}) => {
-  return <>this is ui of <%= name %> </>;
-};
+export { <%= name %> };
+
+export type { <%= name %>Props };
