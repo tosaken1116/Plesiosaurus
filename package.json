@@ -1,7 +1,27 @@
 {
-  "name": "plesiosaurus",
-  "private": true,
-  "version": "0.0.2",
+  "name": "@plesiosaurus/ui",
+  "author": "Team Issei Absence",
+  "license": "MIT",
+  "version": "0.0.3",
+  "description": "A simple & animate-full UI component library build with vanilla-extract.🍦🩵",
+  "main": "./dist/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "./dist",
+    "./types"
+  ],
+  "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "engines": {
+    "node": ">=21.2.0"
+  },
   "scripts": {
     "commitlint": "commitlint -e $GIT_PARAMS",
     "dev": "vite",
@@ -30,6 +50,10 @@
   "dependencies": {
     "@vanilla-extract/css": "^1.14.0",
     "hygen": "^6.2.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -76,7 +100,7 @@
     "npm-run-all": "^4.1.5",
     "storybook": "^7.5.3",
     "typescript": "^5.0.2",
-    "vite": "5.0.0",
+    "vite": "5.0.4",
     "vitest": "^0.34.6",
     "husky": "^8.0.0"
   },

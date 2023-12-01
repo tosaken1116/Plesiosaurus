@@ -1,6 +1,6 @@
-import { Sample } from '.';
+import { Sample } from '.'
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof Sample> = {
   component: Sample,
@@ -8,12 +8,12 @@ const meta: Meta<typeof Sample> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Sample>;
+type Story = StoryObj<typeof Sample>
 
 export const Default: Story = {
   args: {},
-};
+}

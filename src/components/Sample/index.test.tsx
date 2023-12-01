@@ -1,14 +1,14 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react'
 
-import "@testing-library/jest-dom";
-import { Sample } from ".";
+import '@testing-library/jest-dom'
+import { Sample } from '.'
 
-describe("ui/Sample", () => {
-    it("title is exist", () => {
-        render(<Sample />);
+describe('ui/Sample', () => {
+  it('title is exist', () => {
+    render(<Sample />)
 
-        const title = screen.getByText(/this is ui of Sample/);
+    const title = screen.getByText(/this is ui of Sample/)
 
-        expect(title).toBeInTheDocument();
-    });
-});
+    expect(title).toBeInTheDocument()
+  })
+})
