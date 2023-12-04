@@ -80,7 +80,7 @@
     "@vanilla-extract/recipes": "^0.5.1",
     "@vanilla-extract/vite-plugin": "^3.9.1",
     "@vitejs/plugin-react-swc": "^3.3.2",
-    "chromatic": "^9.0.0",
+    "chromatic": "^10.0.0",
     "clsx": "^2.0.0",
     "commitizen": "^4.3.0",
     "cspell": "^8.0.0",
