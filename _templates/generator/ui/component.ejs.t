@@ -2,6 +2,7 @@
 to: "<%= `src/components/${name}/index.tsx` %>"
 ---
 import 'modern-normalize/modern-normalize.css'
+import '../../reset.css'
 export type <%= name %>Props = {};
 
 /**
