@@ -21,7 +21,7 @@ jobs:
               uses: ./.github/actions/bun
 
             - name: deploy
-              uses: chromaui/action@v1
+              uses: chromaui/action@v10
               # Chromatic GitHub Action options
               with:
                   # 👇 Chromatic projectToken, refer to the manage page to obtain it.
