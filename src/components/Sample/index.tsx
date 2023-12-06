@@ -1,4 +1,5 @@
 import 'modern-normalize/modern-normalize.css'
+import '../../reset.css'
 import type { FC } from 'react'
 
 import { clsx } from 'clsx'
