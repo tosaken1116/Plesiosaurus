@@ -49,7 +49,9 @@
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/dynamic": "^2.1.0",
     "hygen": "^6.2.11",
+    "lucide-react": "^0.294.0",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
