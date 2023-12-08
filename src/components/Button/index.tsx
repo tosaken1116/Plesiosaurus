@@ -1,34 +1,94 @@
 /** @format */
+import 'modern-normalize/modern-normalize.css'
+
 import { forwardRef } from 'react'
 
 import { clsx } from 'clsx'
 
-import { states } from './index.css'
-import { radius } from './index.css'
+import { layout } from '../../global.css'
+import { assertNonNullable } from '../../libs/assertNonNullable'
 
-export type ButtonProps = {
-  className?: string
-  state?: keyof typeof states
-  roundness?: keyof typeof radius
-  ref?: React.Ref<HTMLButtonElement>
-  children?: React.ReactNode
-} & React.ButtonHTMLAttributes<HTMLButtonElement>
+import { button } from './index.css'
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+import type { RecipeVariants } from '@vanilla-extract/recipes'
+
+type AnimationObjectType =
+  | 'color'
+  | 'backgroundColor'
+  | 'border'
+  | 'scaleUp'
+  | 'scaleDown'
+
+type AnimationTasteType = 'ease' | 'easeIn' | 'easeOut' | 'easeInOut' | 'linear'
+
+export type ButtonProps = RecipeVariants<typeof button> &
+  React.HTMLProps<HTMLButtonElement> &
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {
+    animationObject?: AnimationObjectType
+    animationTaste?: AnimationTasteType
+  }
+type ButtonPropsWithoutUnnecessaryAttributes = Omit<
+  ButtonProps,
+  'animations' | 'transform' | AnimationObjectType
+>
+const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttributes>(
   ({
     className,
-    state = 'primary',
-    roundness = 'md',
+    state,
+    radius,
+    outline,
+    typography,
+    animationObject = 'backgroundColor',
+    animationTaste,
     ref,
     children,
     ...props
-  }: ButtonProps) => (
-    <button
-      className={clsx(states[state], radius[roundness], className)}
-      ref={ref}
-      {...props}
-    >
+  }: ButtonPropsWithoutUnnecessaryAttributes) => {
+    assertNonNullable(animationObject)
+    assertNonNullable(state)
+    const animationKey =
+      animationObject == 'scaleUp' || animationObject == 'scaleDown'
+        ? 'transform'
+        : animationObject
+
+    return (
+      <button
+        className={clsx(
+          button({
+            state: state,
+            radius: radius,
+            outline: outline,
+            typography: typography,
+            animations:
+              animationObject == 'scaleUp'
+                ? 'scaleUp'
+                : animationObject == 'scaleDown'
+                ? 'scaleDown'
+                : `${state}--${animationObject}`,
+            [animationKey]: animationTaste,
+          }),
+          className,
+        )}
+        ref={ref}
+        {...props}
+      >
+        {children}
+      </button>
+    )
+  },
+)
+
+type ButtonIconProps = {
+  className?: string
+  children: React.ReactNode
+} & React.HTMLAttributes<HTMLSpanElement>
+
+const ButtonIcon = forwardRef<HTMLSpanElement, ButtonIconProps>(
+  ({ className, children, ...props }: ButtonIconProps, ref) => (
+    <span className={clsx(layout.center, className)} ref={ref} {...props}>
       {children}
-    </button>
+    </span>
   ),
 )
+
+export { Button, ButtonIcon }
