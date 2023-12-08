@@ -288,6 +288,14 @@ export const vars = createGlobalTheme(':root', {
   },
 })
 
+export const layout = styleVariants({
+  center: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
+
 export const outline = styleVariants({
   primary: {
     border: `2.5px solid ${vars.outlineColor.primary}`,
