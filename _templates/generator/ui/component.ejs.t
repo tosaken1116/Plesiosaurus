@@ -12,6 +12,6 @@ export type <%= name %>Props = {};
  * @returns {JSX.Element}
  * @example <<%= name %> a={1} />
  */
-export const <%= name %> = ({}:<%= name %>Props) => {
+export const <%= name %> = ({}:<%= name %>Props): JSX.Element => {
   return <>this is ui of <%= name %> </>;
 };
