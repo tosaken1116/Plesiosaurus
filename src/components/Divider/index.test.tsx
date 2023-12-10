@@ -1,14 +1,18 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react'
 
-import "@testing-library/jest-dom";
-import { Divider } from ".";
+import '@testing-library/jest-dom'
+import { Divider } from '.'
 
-describe("ui/Divider", () => {
-  it("title is exist", () => {
-    render(<Divider />);
+describe('ui/Divider', () => {
+  it('title is exist', () => {
+    render(
+      <div style={{ width: '100px' }}>
+        <Divider />
+      </div>,
+    )
 
-    const title = screen.getByText(/this is ui of Divider/);
+    const divider = screen.getByTestId('divider')
 
-    expect(title).toBeInTheDocument();
-  });
-});
+    expect(divider).toBeInTheDocument()
+  })
+})
