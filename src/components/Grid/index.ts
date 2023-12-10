@@ -1,7 +1,7 @@
-import { Grid } from "./index.tsx";
+import { Grid, GridItem } from './index.tsx'
 
-import type { GridProps } from "./index.tsx";
+import type { GridProps, GridItemProps } from './index.tsx'
 
-export { Grid };
+export { Grid, GridItem }
 
-export type { GridProps };
+export type { GridProps, GridItemProps }
