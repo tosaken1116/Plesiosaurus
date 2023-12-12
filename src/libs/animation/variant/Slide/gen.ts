@@ -13,4 +13,4 @@ export const genAnimation = (
     direction: 'bottom',
   },
   isHover = false,
-): string => clsx(isHover ? hoverSlideAnimation(props) : slideAnimation({ ...props }))
+): string => clsx(isHover ? hoverSlideAnimation(props) : slideAnimation(props))
