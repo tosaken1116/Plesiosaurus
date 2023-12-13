@@ -15,5 +15,22 @@ export default meta
 type Story = StoryObj<typeof Sample>
 
 export const Default: Story = {
-  args: {},
+  args: {
+    animationProps: {
+      hover: {
+        animation: 'slide',
+        option: {
+          duration: '1s',
+          direction: 'right',
+        },
+      },
+      in: {
+        animation: 'slide',
+        option: {
+          direction: 'left',
+          duration: '1s',
+        },
+      },
+    },
+  },
 }
