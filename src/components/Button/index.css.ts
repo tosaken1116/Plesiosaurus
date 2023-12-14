@@ -94,27 +94,6 @@ export const button = recipe({
           },
         },
       },
-      'primary--backgroundColor': {
-        selectors: {
-          '&:hover': {
-            backgroundColor: vars.hover.primary,
-          },
-        },
-      },
-      'secondary--backgroundColor': {
-        selectors: {
-          '&:hover': {
-            backgroundColor: vars.hover.secondary,
-          },
-        },
-      },
-      'error--backgroundColor': {
-        selectors: {
-          '&:hover': {
-            backgroundColor: vars.hover.error,
-          },
-        },
-      },
       'primary--color': {
         selectors: {
           '&:hover': {
@@ -152,23 +131,6 @@ export const button = recipe({
       },
       liner: {
         transition: 'transform 0.2s liner',
-      },
-    },
-    backgroundColor: {
-      ease: {
-        transition: 'background-color 0.3s ease',
-      },
-      easeIn: {
-        transition: 'background-color 0.3s ease-in',
-      },
-      easeOut: {
-        transition: 'background-color 0.3s ease-out',
-      },
-      easeInOut: {
-        transition: 'background-color 0.3s ease-in-out',
-      },
-      liner: {
-        transition: 'background-color 0.3s liner',
       },
     },
     border: {

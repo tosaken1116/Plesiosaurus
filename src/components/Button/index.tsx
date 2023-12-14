@@ -6,31 +6,30 @@ import { forwardRef } from 'react'
 import { clsx } from 'clsx'
 
 import { layout } from '../../global.css'
+import { resolveAnimation } from '../../libs/animation'
 import { assertNonNullable } from '../../libs/assertNonNullable'
 
 import { button } from './index.css'
 
+import type { BackGroundColorFadeAnimationProps } from '../../libs/animation/variant/BackGroundColorFade/type'
+import type { AnimationBaseProps } from '../../libs/animation/variant/type'
 import type { RecipeVariants } from '@vanilla-extract/recipes'
 
-type AnimationObjectType =
-  | 'color'
-  | 'backgroundColor'
-  | 'border'
-  | 'scaleUp'
-  | 'scaleDown'
-
-type AnimationTasteType = 'ease' | 'easeIn' | 'easeOut' | 'easeInOut' | 'linear'
+// TODO: 将来的には削除してそれぞれのanimationを作成する
+type AnimationObjectType = 'color' | 'border' | 'scaleUp' | 'scaleDown'
 
 export type ButtonProps = RecipeVariants<typeof button> &
   React.HTMLProps<HTMLButtonElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
     animationObject?: AnimationObjectType
-    animationTaste?: AnimationTasteType
-  }
+  } & AnimationBaseProps &
+  BackGroundColorFadeAnimationProps
+
 type ButtonPropsWithoutUnnecessaryAttributes = Omit<
   ButtonProps,
   'animations' | 'transform' | AnimationObjectType
 >
+
 const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttributes>(
   ({
     className,
@@ -38,8 +37,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
     radius,
     outline,
     typography,
-    animationObject = 'backgroundColor',
-    animationTaste,
+    animationObject = 'color',
+    delay = '0s',
+    duration = '0.3s',
+    easing,
     ref,
     children,
     ...props
@@ -65,7 +66,29 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
                 : animationObject == 'scaleDown'
                 ? 'scaleDown'
                 : `${state}--${animationObject}`,
-            [animationKey]: animationTaste,
+            [animationKey]: easing,
+          }),
+          resolveAnimation<'background'>({
+            hover: {
+              animation: 'backGroundColorFade',
+              option: {
+                delay: delay,
+                afterColor: state,
+                duration: duration,
+                easing: easing,
+              },
+            },
+          }),
+          resolveAnimation<'textColor'>({
+            hover: {
+              animation: 'textColor',
+              option: {
+                delay: delay,
+                afterColor: state,
+                duration: duration,
+                easing: easing,
+              },
+            },
           }),
           className,
         )}
