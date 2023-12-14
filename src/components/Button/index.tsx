@@ -16,7 +16,7 @@ import type { AnimationBaseProps } from '../../libs/animation/variant/type'
 import type { RecipeVariants } from '@vanilla-extract/recipes'
 
 // TODO: 将来的には削除してそれぞれのanimationを作成する
-type AnimationObjectType = 'color' | 'border' | 'scaleUp' | 'scaleDown'
+type AnimationObjectType = 'border' | 'scaleUp' | 'scaleDown'
 
 export type ButtonProps = RecipeVariants<typeof button> &
   React.HTMLProps<HTMLButtonElement> &
@@ -63,7 +63,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
     radius,
     outline,
     typography,
-    animationObject = 'color',
+    animationObject = 'border',
     delay = '0s',
     duration = '0.3s',
     easing,
