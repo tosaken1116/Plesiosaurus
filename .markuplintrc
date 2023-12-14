@@ -1,6 +1,6 @@
 {
   "excludeFiles": [
-    "./**/*.stories.tsx"
+    "./src/libs/**/*.ts"
   ],
   "specs": {
     "\\.[jt]sx?$": "@markuplint/react-spec"
