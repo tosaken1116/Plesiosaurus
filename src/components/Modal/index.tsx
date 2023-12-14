@@ -1,15 +1,163 @@
 import 'modern-normalize/modern-normalize.css'
 import '../../reset.css'
 
-export type ModalProps = {
-  className?: string
+import { forwardRef, useLayoutEffect, useId, isValidElement, cloneElement } from 'react'
+import type { HTMLProps, ButtonHTMLAttributes, ReactNode } from 'react'
+
+import {
+  useMergeRefs,
+  FloatingPortal,
+  FloatingOverlay,
+  FloatingFocusManager,
+} from '@floating-ui/react'
+
+import { useDialog } from './hooks/useDialog'
+import { DialogContext, useDialogContext } from './hooks/useDialogContext'
+
+export type DialogProps = {
+  initialOpen?: boolean
+  open?: boolean
+  onOpenChange?: (open: boolean) => void
 }
 
 /**
- * @name Modal component
- * Modalを表示するコンポーネント
+ * @name Dialog component
+ * Dialogを表示するコンポーネント
  * @param {number} a - props a
  * @returns {JSX.Element}
- * @example <Modal a={1} />
+ * @example <Dialog a={1} />
  */
-export const Modal = ({ className }: ModalProps): JSX.Element => <>{className}</>
+const Dialog = ({
+  children,
+  ...options
+}: {
+  children: ReactNode
+} & DialogProps): JSX.Element => {
+  const dialog = useDialog(options)
+  return <DialogContext.Provider value={dialog}>{children}</DialogContext.Provider>
+}
+
+type DialogTriggerProps = {
+  children: ReactNode
+  asChild?: boolean
+} & HTMLProps<HTMLElement>
+
+const DialogTrigger = forwardRef<HTMLElement, DialogTriggerProps>(
+  ({ children, asChild = false, ...props }, propRef) => {
+    const context = useDialogContext()
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const childrenRef: RefObject<HTMLElement> = children.ref
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+    const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef])
+    // `asChild` allows the user to pass any element as the anchor
+    if (asChild && isValidElement(children)) {
+      return cloneElement(
+        children,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+        context.getReferenceProps({
+          ref,
+          ...props,
+          ...children.props,
+          'data-state': context.open ? 'open' : 'closed',
+        }),
+      )
+    }
+
+    return (
+      <button
+        ref={ref}
+        // The user can style the trigger based on the state
+        data-state={context.open ? 'open' : 'closed'}
+        {...context.getReferenceProps(props)}
+      >
+        {children}
+      </button>
+    )
+  },
+)
+
+const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
+  (props, propRef) => {
+    const { context: floatingContext, ...context } = useDialogContext()
+    const ref = useMergeRefs([context.refs.setFloating, propRef])
+    console.log('context.open', context.open)
+
+    if (!context.open) return null
+
+    return (
+      <FloatingPortal>
+        <FloatingOverlay className='Dialog-overlay' lockScroll>
+          <FloatingFocusManager context={floatingContext}>
+            <div
+              ref={ref}
+              aria-describedby={context.descriptionId}
+              {...context.getFloatingProps(props)}
+            >
+              {props.children}
+            </div>
+          </FloatingFocusManager>
+        </FloatingOverlay>
+      </FloatingPortal>
+    )
+  },
+)
+
+const DialogHeading = forwardRef<HTMLHeadingElement, HTMLProps<HTMLHeadingElement>>(
+  ({ children, ...props }, ref) => {
+    const { setLabelId } = useDialogContext()
+    const id = useId()
+
+    // Only sets `aria-labelledby` on the Dialog root element
+    // if this component is mounted inside it.
+    useLayoutEffect(() => {
+      setLabelId(id)
+      return (): void => setLabelId(undefined)
+    }, [id, setLabelId])
+
+    return (
+      <h2 {...props} ref={ref} id={id}>
+        {children}
+      </h2>
+    )
+  },
+)
+
+const DialogDescription = forwardRef<
+  HTMLParagraphElement,
+  HTMLProps<HTMLParagraphElement>
+>(({ children, ...props }, ref) => {
+  const { setDescriptionId } = useDialogContext()
+  const id = useId()
+
+  // Only sets `aria-describedby` on the Dialog root element
+  // if this component is mounted inside it.
+  useLayoutEffect(() => {
+    setDescriptionId(id)
+    return (): void => setDescriptionId(undefined)
+  }, [id, setDescriptionId])
+
+  return (
+    <p {...props} ref={ref} id={id}>
+      {children}
+    </p>
+  )
+})
+
+const DialogClose = forwardRef<
+  HTMLButtonElement,
+  ButtonHTMLAttributes<HTMLButtonElement>
+>((props, ref) => {
+  const { setOpen } = useDialogContext()
+  return <button type='button' {...props} ref={ref} onClick={() => setOpen(false)} />
+})
+
+export {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeading,
+  DialogDescription,
+  DialogClose,
+}
