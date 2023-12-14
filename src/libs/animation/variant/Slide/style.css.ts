@@ -83,6 +83,9 @@ export const slideAnimation = recipe({
       },
     },
     delay: {
+      '0s': {
+        animationDelay: '0s',
+      },
       '1s': {
         animationDelay: '1s',
       },
@@ -144,6 +147,11 @@ export const hoverSlideAnimation = recipe({
       },
     },
     delay: {
+      '0s': {
+        ':hover': {
+          transitionDelay: '0s',
+        },
+      },
       '1s': {
         ':hover': {
           transitionDelay: '1s',
