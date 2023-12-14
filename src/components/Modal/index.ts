@@ -1,7 +1,16 @@
-import { Modal } from "./index.tsx";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeading,
+  DialogDescription,
+  DialogClose,
+} from './index.tsx'
 
-import type { ModalProps } from "./index.tsx";
+import type { DialogProps } from './index.tsx'
 
-export { Modal };
+export { Dialog }
 
-export type { ModalProps };
+export type { DialogProps }
+
+export { DialogTrigger, DialogContent, DialogHeading, DialogDescription, DialogClose }
