@@ -3,8 +3,9 @@ import clsx from 'clsx'
 import { hoverSlideAnimation, slideAnimation } from './style.css'
 
 import type { SlideAnimationProps } from './type'
+import type { AnimationBaseProps } from '../type'
 
-type Props = SlideAnimationProps
+type Props = SlideAnimationProps & AnimationBaseProps
 
 export const genAnimation = (
   props: Props = {
