@@ -36,6 +36,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "new:ui": "hygen generator ui",
+    "new:animation": "hygen generator animation",
     "ci:test-group": "run-p test:*",
     "ci:check": "run-p check:*",
     "commit": "cz",
