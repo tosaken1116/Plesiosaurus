@@ -1,3 +1,7 @@
+import clsx from 'clsx'
+
+import { vars } from '../global.css'
+
 import {
   DialogTrigger,
   DialogContent,
@@ -24,12 +28,48 @@ type Story = StoryObj<typeof Dialog>
 export const Default: Story = {
   args: {
     children: [
-      <h1>Floating UI — Dialog</h1>,
-      <DialogTrigger>My trigger</DialogTrigger>,
-      <DialogContent className='Dialog'>
+      <h1>This is Dialog</h1>,
+      <DialogTrigger>
+        <button
+          type='button'
+          style={{
+            display: 'flex',
+            padding: '8px 16px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '10px',
+            border: 'none',
+            margin: '5px',
+            borderRadius: vars.radius.lg,
+            background: vars.background.primary,
+            color: vars.foreground.primary,
+          }}
+        >
+          Open Dialog
+        </button>
+      </DialogTrigger>,
+      <DialogContent className={clsx()}>
         <DialogHeading>My dialog heading</DialogHeading>
         <DialogDescription>My dialog description</DialogDescription>
-        <DialogClose>Close</DialogClose>
+        <DialogClose>
+          <button
+            type='button'
+            style={{
+              display: 'flex',
+              padding: '8px 16px',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '10px',
+              border: 'none',
+              margin: '5px',
+              borderRadius: vars.radius.lg,
+              background: vars.background.primary,
+              color: vars.foreground.primary,
+            }}
+          >
+            Close Dialog
+          </button>
+        </DialogClose>
       </DialogContent>,
     ],
   },
