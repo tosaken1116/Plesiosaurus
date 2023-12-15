@@ -2,19 +2,17 @@ import clsx from 'clsx'
 
 import { hoverSlideAnimation, slideAnimation } from './style.css'
 
-import type { SlideAnimationProps } from './type'
-import type { AnimationBaseProps } from '../type'
-
-type Props = SlideAnimationProps & AnimationBaseProps
+import type { SlideProps } from '.'
+import type { GeneratedAnimationValue } from '../type'
 
 export const genAnimation = (
-  props: Props = {
+  props: SlideProps['option'] = {
     direction: 'bottom',
     duration: '0.3s',
     delay: '0s',
   },
   isHover = false,
-): { className: string; style: object } => ({
+): GeneratedAnimationValue => ({
   className: clsx(
     isHover
       ? hoverSlideAnimation({ direction: props.direction })

@@ -1,17 +1,16 @@
-import clsx from 'clsx'
-
 import { hoverBackGroundColorFadeAnimation } from './style.css'
 
-import type { BackGroundColorFadeAnimationProps } from './type'
-import type { AnimationBaseProps } from '../type'
-
-export type Props = BackGroundColorFadeAnimationProps & AnimationBaseProps
+import type { BackGroundColorFadeProps } from '.'
+import type { GeneratedAnimationValue } from '../type'
 
 export const genAnimation = (
-  props: Props = {
+  props: BackGroundColorFadeProps['option'] = {
     afterColor: 'primary',
-    duration: '0.3s',
-    delay: '1s',
     easing: 'ease',
+    duration: '0.3s',
+    delay: '0s',
   },
-): string => clsx(hoverBackGroundColorFadeAnimation(props))
+): GeneratedAnimationValue => ({
+  className: hoverBackGroundColorFadeAnimation(props),
+  style: { '--transition-duration': props.duration, '--transition-delay': props.delay },
+})

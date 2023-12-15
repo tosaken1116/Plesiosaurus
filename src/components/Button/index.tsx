@@ -11,7 +11,7 @@ import { assertNonNullable } from '../../libs/assertNonNullable'
 
 import { button } from './index.css'
 
-import type { BackGroundColorFadeAnimationProps } from '../../libs/animation/variant/BackGroundColorFade/type'
+import type { AnimationProps } from '../../libs/animation/variant/AnimationFactory'
 import type { AnimationBaseProps } from '../../libs/animation/variant/type'
 import type { RecipeVariants } from '@vanilla-extract/recipes'
 
@@ -23,7 +23,7 @@ export type ButtonProps = RecipeVariants<typeof button> &
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
     animationObject?: AnimationObjectType
   } & AnimationBaseProps &
-  BackGroundColorFadeAnimationProps
+  AnimationProps
 
 type ButtonPropsWithoutUnnecessaryAttributes = Omit<
   ButtonProps,
@@ -94,9 +94,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
                 : `${state}--${animationObject}`,
             [animationKey]: easing,
           }),
-          resolveAnimation<'background'>({
+          resolveAnimation({
             hover: {
-              animation: 'backGroundColorFade',
+              key: 'bgColorFade',
               option: {
                 delay: delay,
                 afterColor: state,
@@ -105,9 +105,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
               },
             },
           }),
-          resolveAnimation<'textColor'>({
+          resolveAnimation({
             hover: {
-              animation: 'textColor',
+              key: 'textColor',
               option: {
                 delay: delay,
                 afterColor: state,
