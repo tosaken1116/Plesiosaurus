@@ -2,7 +2,7 @@ import 'modern-normalize/modern-normalize.css'
 import '../../reset.css'
 
 import { forwardRef, useLayoutEffect, useId, isValidElement, cloneElement } from 'react'
-import type { HTMLProps, ButtonHTMLAttributes, ReactNode } from 'react'
+import type { HTMLAttributes, HTMLProps, ReactElement, ReactNode } from 'react'
 
 import {
   useMergeRefs,
@@ -12,9 +12,11 @@ import {
 } from '@floating-ui/react'
 import clsx from 'clsx'
 
+import { assertNonNullable } from '../../libs/assertNonNullable'
+
 import { useDialog } from './hooks/useDialog'
 import { DialogContext, useDialogContext } from './hooks/useDialogContext'
-import { buttonBase, dialogBase, dialogOverlay } from './index.css'
+import { dialogBase, dialogOverlay } from './index.css'
 
 export type DialogProps = {
   initialOpen?: boolean
@@ -46,14 +48,11 @@ type DialogTriggerProps = {
 
 const DialogTrigger = forwardRef<HTMLElement, DialogTriggerProps>(
   ({ children, asChild = false, ...props }, propRef) => {
+    assertNonNullable(children)
     const context = useDialogContext()
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const childrenRef: RefObject<HTMLElement> = children.ref
+    // @ts-expect-error `isValidElement`でチェックしているので、`children`は`ReactElement`であることが保証されるため問題ない
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    const ref = useMergeRefs([context.refs.setReference, propRef, childrenRef])
-    // `asChild` allows the user to pass any element as the anchor
+    const ref = useMergeRefs([context.refs.setReference, propRef, children.ref])
     if (asChild && isValidElement(children)) {
       return cloneElement(
         children,
@@ -73,7 +72,6 @@ const DialogTrigger = forwardRef<HTMLElement, DialogTriggerProps>(
         ref={ref}
         data-state={context.open ? 'open' : 'closed'}
         {...context.getReferenceProps(props)}
-        className={clsx(buttonBase)} // デフォルトのスタイルを無効化
       >
         {children}
       </button>
@@ -85,7 +83,6 @@ const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
   ({ children, className, ...props }, propRef) => {
     const { context: floatingContext, ...context } = useDialogContext()
     const ref = useMergeRefs([context.refs.setFloating, propRef])
-    console.log('context.open', context.open)
 
     if (!context.open) return null
 
@@ -113,8 +110,6 @@ const DialogHeading = forwardRef<HTMLHeadingElement, HTMLProps<HTMLHeadingElemen
     const { setLabelId } = useDialogContext()
     const id = useId()
 
-    // Only sets `aria-labelledby` on the Dialog root element
-    // if this component is mounted inside it.
     useLayoutEffect(() => {
       setLabelId(id)
       return (): void => setLabelId(undefined)
@@ -147,23 +142,28 @@ const DialogDescription = forwardRef<
   )
 })
 
-const DialogClose = forwardRef<
-  HTMLButtonElement,
-  ButtonHTMLAttributes<HTMLButtonElement>
->(({ children, ...props }, ref) => {
-  const { setOpen } = useDialogContext()
-  return (
-    <button
-      type='button'
-      ref={ref}
-      onClick={() => setOpen(false)}
-      className={clsx(buttonBase)} // デフォルトのスタイルを無効化
-      {...props}
-    >
-      {children}
-    </button>
-  )
-})
+type DialogCloseProps = {
+  children: ReactNode
+  asChild?: boolean
+} & HTMLAttributes<HTMLButtonElement>
+
+const DialogClose = forwardRef<HTMLButtonElement, DialogCloseProps>(
+  ({ children, asChild = false, ...props }, ref) => {
+    const { setOpen } = useDialogContext()
+    if (asChild && isValidElement(children)) {
+      return cloneElement(children as ReactElement, {
+        ref,
+        ...props,
+        onClick: () => setOpen(false),
+      })
+    }
+    return (
+      <button type='button' ref={ref} onClick={() => setOpen(false)} {...props}>
+        {children}
+      </button>
+    )
+  },
+)
 
 export {
   Dialog,

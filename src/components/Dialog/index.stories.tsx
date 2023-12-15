@@ -29,7 +29,7 @@ export const Default: Story = {
   args: {
     children: [
       <h1>This is Dialog</h1>,
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <button
           type='button'
           style={{
@@ -51,7 +51,7 @@ export const Default: Story = {
       <DialogContent className={clsx()}>
         <DialogHeading>My dialog heading</DialogHeading>
         <DialogDescription>My dialog description</DialogDescription>
-        <DialogClose>
+        <DialogClose asChild>
           <button
             type='button'
             style={{
