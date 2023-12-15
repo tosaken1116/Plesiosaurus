@@ -8,9 +8,19 @@ type Props = SlideAnimationProps
 
 export const genAnimation = (
   props: Props = {
-    duration: '1s',
-    delay: '1s',
     direction: 'bottom',
+    duration: '0.3s',
+    delay: '0s',
   },
   isHover = false,
-): string => clsx(isHover ? hoverSlideAnimation(props) : slideAnimation(props))
+): { className: string; style: object } => ({
+  className: clsx(
+    isHover
+      ? hoverSlideAnimation({ direction: props.direction })
+      : slideAnimation({ direction: props.direction }),
+  ),
+  style: {
+    '--animation-duration': props.duration,
+    '--animation-delay': props.delay,
+  },
+})

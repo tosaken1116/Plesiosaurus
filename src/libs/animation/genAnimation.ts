@@ -4,9 +4,12 @@ import { AnimationFactory } from './variant/AnimationFactory'
 
 import type { AnimationObject, AnimationProps } from './variant/AnimationFactory'
 
-const animateObject = (props?: AnimationObject, isHover = false): string => {
+const animateObject = (
+  props?: AnimationObject,
+  isHover = false,
+): { className: string; style: object } => {
   if (!props) {
-    return ''
+    return { className: '', style: {} }
   }
   const { animation, option } = props
 
@@ -18,10 +21,17 @@ const animateObject = (props?: AnimationObject, isHover = false): string => {
   }
 }
 
-export const genAnimation = (props: AnimationProps): string => {
+export const genAnimation = (
+  props: AnimationProps,
+): { className: string; style: object } => {
   const { in: inAnimate, hover } = props
   if (!inAnimate && !hover) {
     throw new Error('Missing animation props')
   }
-  return clsx(animateObject(inAnimate), animateObject(hover, true))
+  const { className, style } = animateObject(inAnimate)
+  const { className: hoverClassName, style: hoverStyle } = animateObject(hover, true)
+  return {
+    className: clsx(className, hoverClassName),
+    style: { ...style, ...hoverStyle },
+  }
 }

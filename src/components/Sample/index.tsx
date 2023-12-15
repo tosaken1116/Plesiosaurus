@@ -12,11 +12,14 @@ import type { AnimationProps } from '../../libs/animation/variant/AnimationFacto
 
 export type SampleProps = {
   className?: string
-  animationProps: AnimationProps
+  animationProps?: AnimationProps
 }
 
-export const Sample: FC<SampleProps> = ({ className, animationProps }) => (
-  <p className={clsx(root, className, genAnimation(animationProps))}>
-    this is ui of Sample{' '}
-  </p>
-)
+export const Sample: FC<SampleProps> = ({ className, animationProps }) => {
+  const { className: animationClass, style } = genAnimation(animationProps ?? {})
+  return (
+    <p className={clsx(root, className, animationClass)} style={style}>
+      this is ui of Sample{' '}
+    </p>
+  )
+}
