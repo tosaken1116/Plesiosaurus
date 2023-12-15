@@ -111,8 +111,11 @@ const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
   },
 )
 
-const DialogHeading = forwardRef<HTMLHeadingElement, HTMLProps<HTMLHeadingElement>>(
-  ({ children, className, ...props }, ref) => {
+type DialogHeadingProps = {
+  asChild?: boolean
+} & HTMLProps<HTMLHeadingElement>
+const DialogHeading = forwardRef<HTMLHeadingElement, DialogHeadingProps>(
+  ({ children, asChild = false, className, ...props }, ref) => {
     const { setLabelId } = useDialogContext()
     const id = useId()
 
@@ -120,6 +123,14 @@ const DialogHeading = forwardRef<HTMLHeadingElement, HTMLProps<HTMLHeadingElemen
       setLabelId(id)
       return (): void => setLabelId(undefined)
     }, [id, setLabelId])
+
+    if (asChild && isValidElement(children)) {
+      return cloneElement(children as ReactElement, {
+        ref,
+        id,
+        className: clsx(className),
+      })
+    }
 
     return (
       <h2 {...props} ref={ref} id={id} className={clsx(className)}>
@@ -129,27 +140,35 @@ const DialogHeading = forwardRef<HTMLHeadingElement, HTMLProps<HTMLHeadingElemen
   },
 )
 
-const DialogDescription = forwardRef<
-  HTMLParagraphElement,
-  HTMLProps<HTMLParagraphElement>
->(({ children, className, ...props }, ref) => {
-  const { setDescriptionId } = useDialogContext()
-  const id = useId()
+type DialogDescriptionProps = {
+  asChild?: boolean
+} & HTMLProps<HTMLParagraphElement>
+const DialogDescription = forwardRef<HTMLParagraphElement, DialogDescriptionProps>(
+  ({ children, asChild = false, className, ...props }, ref) => {
+    const { setDescriptionId } = useDialogContext()
+    const id = useId()
 
-  useLayoutEffect(() => {
-    setDescriptionId(id)
-    return (): void => setDescriptionId(undefined)
-  }, [id, setDescriptionId])
+    useLayoutEffect(() => {
+      setDescriptionId(id)
+      return (): void => setDescriptionId(undefined)
+    }, [id, setDescriptionId])
 
-  return (
-    <p {...props} ref={ref} id={id} className={clsx(className)}>
-      {children}
-    </p>
-  )
-})
+    if (asChild && isValidElement(children)) {
+      return cloneElement(children as ReactElement, {
+        ref,
+        id,
+        className: clsx(className),
+      })
+    }
+    return (
+      <p {...props} ref={ref} id={id} className={clsx(className)}>
+        {children}
+      </p>
+    )
+  },
+)
 
 type DialogCloseProps = {
-  children: ReactNode
   asChild?: boolean
 } & HTMLAttributes<HTMLButtonElement>
 
