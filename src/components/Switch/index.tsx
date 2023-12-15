@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import 'modern-normalize/modern-normalize.css'
 import '../../reset.css'
 
@@ -11,15 +12,9 @@ import { toggleButtonInput, toggleButtonLabel } from './index.css'
  * @example <Switch a={1} />
  */
 export const Switch = (): JSX.Element => (
-  <div>
-    {/* トグルボタンを作るためにlabelが必要 */}
-    {/* labelだけにするとA form label must be associated with a control が起きる */}
-    {/* 仕方なく文字列入れてます */}
-    <label className={toggleButtonLabel}>
-      toggle
-      <input type='checkbox' className={toggleButtonInput} />
-    </label>
-  </div>
+  <label htmlFor='switch' className={toggleButtonLabel}>
+    <input type='checkbox' className={toggleButtonInput} id='switch' />
+  </label>
 )
 
 // A form label must be associated with a control.
