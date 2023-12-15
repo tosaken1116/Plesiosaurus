@@ -1,13 +1,7 @@
 import 'modern-normalize/modern-normalize.css'
 import '../../reset.css'
 
-import { clsx } from 'clsx'
-
-import { root } from './index.css'
-
-export type SwitchProps = {
-  className?: string
-}
+import { toggleButtonInput, toggleButtonLabel } from './index.css'
 
 /**
  * @name Switch component
@@ -16,9 +10,15 @@ export type SwitchProps = {
  * @returns {JSX.Element}
  * @example <Switch a={1} />
  */
-export const Switch = ({ className }: SwitchProps): JSX.Element => (
-  <div className={clsx(root, className)}>
-    <input type='checkbox' />
+export const Switch = (): JSX.Element => (
+  <div>
+    {/* トグルボタンを作るためにlabelが必要 */}
+    {/* labelだけにするとA form label must be associated with a control が起きる */}
+    {/* 仕方なく文字列入れてます */}
+    <label className={toggleButtonLabel}>
+      toggle
+      <input type='checkbox' className={toggleButtonInput} />
+    </label>
   </div>
 )
 
