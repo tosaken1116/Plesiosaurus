@@ -44,8 +44,6 @@ export function useDialog({
 
   const open = controlledOpen ?? uncontrolledOpen
   const setOpen = setControlledOpen ?? setUncontrolledOpen
-  console.log(open, setOpen)
-
   const data = useFloating({
     open,
     onOpenChange: setOpen,
