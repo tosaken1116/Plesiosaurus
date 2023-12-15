@@ -10,9 +10,11 @@ import {
   FloatingOverlay,
   FloatingFocusManager,
 } from '@floating-ui/react'
+import clsx from 'clsx'
 
 import { useDialog } from './hooks/useDialog'
 import { DialogContext, useDialogContext } from './hooks/useDialogContext'
+import { buttonBase, dialogBase, dialogOverlay } from './index.css'
 
 export type DialogProps = {
   initialOpen?: boolean
@@ -67,10 +69,11 @@ const DialogTrigger = forwardRef<HTMLElement, DialogTriggerProps>(
 
     return (
       <button
+        type='button'
         ref={ref}
-        // The user can style the trigger based on the state
         data-state={context.open ? 'open' : 'closed'}
         {...context.getReferenceProps(props)}
+        className={clsx(buttonBase)} // デフォルトのスタイルを無効化
       >
         {children}
       </button>
@@ -79,7 +82,7 @@ const DialogTrigger = forwardRef<HTMLElement, DialogTriggerProps>(
 )
 
 const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
-  (props, propRef) => {
+  ({ children, className, ...props }, propRef) => {
     const { context: floatingContext, ...context } = useDialogContext()
     const ref = useMergeRefs([context.refs.setFloating, propRef])
     console.log('context.open', context.open)
@@ -88,14 +91,15 @@ const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
 
     return (
       <FloatingPortal>
-        <FloatingOverlay className='Dialog-overlay' lockScroll>
+        <FloatingOverlay className={clsx(dialogOverlay)} lockScroll>
           <FloatingFocusManager context={floatingContext}>
             <div
               ref={ref}
               aria-describedby={context.descriptionId}
               {...context.getFloatingProps(props)}
+              className={clsx(dialogBase, className)}
             >
-              {props.children}
+              {children}
             </div>
           </FloatingFocusManager>
         </FloatingOverlay>
@@ -131,8 +135,6 @@ const DialogDescription = forwardRef<
   const { setDescriptionId } = useDialogContext()
   const id = useId()
 
-  // Only sets `aria-describedby` on the Dialog root element
-  // if this component is mounted inside it.
   useLayoutEffect(() => {
     setDescriptionId(id)
     return (): void => setDescriptionId(undefined)
@@ -148,9 +150,19 @@ const DialogDescription = forwardRef<
 const DialogClose = forwardRef<
   HTMLButtonElement,
   ButtonHTMLAttributes<HTMLButtonElement>
->((props, ref) => {
+>(({ children, ...props }, ref) => {
   const { setOpen } = useDialogContext()
-  return <button type='button' {...props} ref={ref} onClick={() => setOpen(false)} />
+  return (
+    <button
+      type='button'
+      ref={ref}
+      onClick={() => setOpen(false)}
+      className={clsx(buttonBase)} // デフォルトのスタイルを無効化
+      {...props}
+    >
+      {children}
+    </button>
+  )
 })
 
 export {
