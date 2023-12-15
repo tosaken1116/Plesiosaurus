@@ -5,6 +5,8 @@ import { vars } from '../../../../global.css'
 export const hoverBackGroundColorFadeAnimation = recipe({
   base: {
     transitionTimingFunction: 'ease-in-out',
+    transitionDuration: 'var(--transition-duration)',
+    transitionDelay: 'var(--transition-delay)',
     ':hover': {
       animation: 'none',
     },
@@ -51,50 +53,6 @@ export const hoverBackGroundColorFadeAnimation = recipe({
       //     backgroundColor: vars.hover.dark,
       //   },
       // },
-    },
-    duration: {
-      '0s': {
-        ':hover': {
-          transitionDuration: '0s',
-        },
-      },
-      '0.3s': {
-        ':hover': {
-          transitionDuration: '0.3s',
-        },
-      },
-      '0.5s': {
-        ':hover': {
-          transitionDuration: '0.5s',
-        },
-      },
-      '0.8s': {
-        ':hover': {
-          transitionDuration: '0.8s',
-        },
-      },
-    },
-    delay: {
-      '0s': {
-        ':hover': {
-          transitionDelay: '0s',
-        },
-      },
-      '1s': {
-        ':hover': {
-          transitionDelay: '1s',
-        },
-      },
-      '2s': {
-        ':hover': {
-          transitionDelay: '2s',
-        },
-      },
-      '3s': {
-        ':hover': {
-          transitionDelay: '3s',
-        },
-      },
     },
     easing: {
       'ease': {

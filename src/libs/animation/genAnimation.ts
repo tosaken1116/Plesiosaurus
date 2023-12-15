@@ -10,19 +10,18 @@ const animateObject = (
     return { className: '', style: {} }
   }
 
-  const { animation, option } = props
+  const { key, option } = props
 
-  const genFunction = AnimationFactory[animation]
+  const genFunction = AnimationFactory[key]
 
   if (genFunction) {
-    // @ts-expect-error : Generic typeはこの時点では不明だが、実行時には確定しているので問題ない
     return genFunction(option, isHover)
   } else {
     throw new Error('Invalid animation type')
   }
 }
 
-export const genAnimation = (
+export const resolveAnimation = (
   props: AnimationProps,
 ): { className: string; style: object } => {
   const { in: inAnimate, hover } = props

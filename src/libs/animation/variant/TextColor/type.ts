@@ -1,9 +1,17 @@
-export type TextColorAnimationProps = {
+import type { AnimationBaseProps } from '../type'
+import type { CSSProperties } from '@vanilla-extract/css'
+
+export type OptionProps = {
   afterColor?: 'primary' | 'secondary' | 'error'
   // | 'success'
   // | 'warning'
   // | 'info'
   // | 'light'
   // | 'dark',
-  duration?: '0s' | '0.3s' | '0.5s' | '0.8s'
+  duration?: CSSProperties['transitionDuration']
+}
+
+export type TextColorProps = {
+  key: 'textColor'
+  option: OptionProps & AnimationBaseProps
 }

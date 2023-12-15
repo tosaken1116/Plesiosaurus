@@ -1,8 +1,10 @@
-import type { CSSProperties } from 'react'
+import type { AnimationBaseProps } from '../type'
 
-export type SlideAnimationProps = {
-  duration?: CSSProperties['animationDuration']
-  delay?: CSSProperties['animationDelay']
+export type OptionProps = {
   direction?: 'left' | 'right' | 'top' | 'bottom'
-  distance?: number
+}
+
+export type SlideProps = {
+  key: 'slide'
+  option: OptionProps & AnimationBaseProps
 }

@@ -1,9 +1,18 @@
-export type BackGroundColorFadeAnimationProps = {
+import type { CSSProperties } from 'react'
+
+import type { AnimationBaseProps } from '../type'
+
+export type OptionProps = {
   afterColor?: 'primary' | 'secondary' | 'error'
   // | 'success'
   // | 'warning'
   // | 'info'
   // | 'light'
   // | 'dark',
-  duration?: '0s' | '0.3s' | '0.5s' | '0.8s'
+  duration?: CSSProperties['animationDuration']
+}
+
+export type BackGroundColorFadeProps = {
+  key: 'bgColorFade'
+  option: OptionProps & AnimationBaseProps
 }
