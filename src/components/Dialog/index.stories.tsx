@@ -1,5 +1,3 @@
-import clsx from 'clsx'
-
 import { vars } from '../global.css'
 
 import {
@@ -48,7 +46,7 @@ export const Default: Story = {
           Open Dialog
         </button>
       </DialogTrigger>,
-      <DialogContent className={clsx()}>
+      <DialogContent>
         <DialogHeading>My dialog heading</DialogHeading>
         <DialogDescription>My dialog description</DialogDescription>
         <DialogClose asChild>

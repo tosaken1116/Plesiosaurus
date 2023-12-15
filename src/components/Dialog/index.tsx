@@ -47,7 +47,7 @@ type DialogTriggerProps = {
 } & HTMLProps<HTMLElement>
 
 const DialogTrigger = forwardRef<HTMLElement, DialogTriggerProps>(
-  ({ children, asChild = false, ...props }, propRef) => {
+  ({ children, asChild = false, className, ...props }, propRef) => {
     assertNonNullable(children)
     const context = useDialogContext()
     // @ts-expect-error `isValidElement`でチェックしているので、`children`は`ReactElement`であることが保証されるため問題ない
@@ -72,6 +72,7 @@ const DialogTrigger = forwardRef<HTMLElement, DialogTriggerProps>(
         ref={ref}
         data-state={context.open ? 'open' : 'closed'}
         {...context.getReferenceProps(props)}
+        className={clsx(className)}
       >
         {children}
       </button>
@@ -79,8 +80,13 @@ const DialogTrigger = forwardRef<HTMLElement, DialogTriggerProps>(
   },
 )
 
-const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
-  ({ children, className, ...props }, propRef) => {
+type DialogContentProps = {
+  overlayClassName?: string
+  contentClassName?: string
+} & HTMLProps<HTMLDivElement>
+
+const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
+  ({ children, overlayClassName, contentClassName, ...props }, propRef) => {
     const { context: floatingContext, ...context } = useDialogContext()
     const ref = useMergeRefs([context.refs.setFloating, propRef])
 
@@ -88,13 +94,13 @@ const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
 
     return (
       <FloatingPortal>
-        <FloatingOverlay className={clsx(dialogOverlay)} lockScroll>
+        <FloatingOverlay className={clsx(dialogOverlay, overlayClassName)} lockScroll>
           <FloatingFocusManager context={floatingContext}>
             <div
               ref={ref}
               aria-describedby={context.descriptionId}
               {...context.getFloatingProps(props)}
-              className={clsx(dialogBase, className)}
+              className={clsx(dialogBase, contentClassName)}
             >
               {children}
             </div>
@@ -106,7 +112,7 @@ const DialogContent = forwardRef<HTMLDivElement, HTMLProps<HTMLDivElement>>(
 )
 
 const DialogHeading = forwardRef<HTMLHeadingElement, HTMLProps<HTMLHeadingElement>>(
-  ({ children, ...props }, ref) => {
+  ({ children, className, ...props }, ref) => {
     const { setLabelId } = useDialogContext()
     const id = useId()
 
@@ -116,7 +122,7 @@ const DialogHeading = forwardRef<HTMLHeadingElement, HTMLProps<HTMLHeadingElemen
     }, [id, setLabelId])
 
     return (
-      <h2 {...props} ref={ref} id={id}>
+      <h2 {...props} ref={ref} id={id} className={clsx(className)}>
         {children}
       </h2>
     )
@@ -126,7 +132,7 @@ const DialogHeading = forwardRef<HTMLHeadingElement, HTMLProps<HTMLHeadingElemen
 const DialogDescription = forwardRef<
   HTMLParagraphElement,
   HTMLProps<HTMLParagraphElement>
->(({ children, ...props }, ref) => {
+>(({ children, className, ...props }, ref) => {
   const { setDescriptionId } = useDialogContext()
   const id = useId()
 
@@ -136,7 +142,7 @@ const DialogDescription = forwardRef<
   }, [id, setDescriptionId])
 
   return (
-    <p {...props} ref={ref} id={id}>
+    <p {...props} ref={ref} id={id} className={clsx(className)}>
       {children}
     </p>
   )
