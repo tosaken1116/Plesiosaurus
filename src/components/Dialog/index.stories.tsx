@@ -46,9 +46,21 @@ export const Default: Story = {
           Open Dialog
         </button>
       </DialogTrigger>,
-      <DialogContent>
-        <DialogHeading>My dialog heading</DialogHeading>
-        <DialogDescription>My dialog description</DialogDescription>
+      <DialogContent
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '20px',
+          padding: '20px',
+          borderRadius: '20px',
+        }}
+      >
+        <DialogHeading>
+          <h1>My dialog heading</h1>
+        </DialogHeading>
+        <DialogDescription>
+          <p style={{ color: vars.foreground.secondary }}>My dialog description</p>
+        </DialogDescription>
         <DialogClose asChild>
           <button
             type='button'
