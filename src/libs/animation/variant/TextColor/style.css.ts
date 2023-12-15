@@ -53,50 +53,6 @@ export const hoverTextColorAnimation = recipe({
       //   },
       // },
     },
-    duration: {
-      '0s': {
-        ':hover': {
-          transitionDuration: '0s',
-        },
-      },
-      '0.3s': {
-        ':hover': {
-          transitionDuration: '0.3s',
-        },
-      },
-      '0.5s': {
-        ':hover': {
-          transitionDuration: '0.5s',
-        },
-      },
-      '0.8s': {
-        ':hover': {
-          transitionDuration: '0.8s',
-        },
-      },
-    },
-    delay: {
-      '0s': {
-        ':hover': {
-          transitionDelay: '0s',
-        },
-      },
-      '1s': {
-        ':hover': {
-          transitionDelay: '1s',
-        },
-      },
-      '2s': {
-        ':hover': {
-          transitionDelay: '2s',
-        },
-      },
-      '3s': {
-        ':hover': {
-          transitionDelay: '3s',
-        },
-      },
-    },
     easing: {
       'ease': {
         ':hover': {

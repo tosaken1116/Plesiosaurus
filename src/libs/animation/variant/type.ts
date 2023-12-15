@@ -1,5 +1,13 @@
+import type { CSSProperties } from 'react'
+
 export type AnimationBaseProps = {
-  delay?: '0s' | '1s' | '2s' | '3s'
+  delay?: CSSProperties['animationDelay']
+  duration?: CSSProperties['animationDuration']
   easing?: 'ease' | 'easeIn' | 'easeOut' | 'easeInOut' | 'linear'
   visible?: boolean
+}
+
+export type GeneratedAnimationValue = {
+  className: string
+  style: object
 }
