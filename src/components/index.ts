@@ -10,4 +10,4 @@ export * from './Typography'
 
 export * from './CheckBox'
 
-export * from './Modal'
+export * from './Dialog'
