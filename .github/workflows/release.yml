@@ -45,9 +45,11 @@ jobs:
                   node-version-file: "package.json"
                   registry-url: "https://registry.npmjs.org"
               if: ${{ steps.release.outputs.release_created }}
-            - run: npm ci
+            - uses: actions/checkout@v4
+            - name: Setup
+              uses: ./.github/actions/bun_ci
+
               if: ${{ steps.release.outputs.release_created }}
             - run: npm publish --access public
               env:
                   NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-              if: ${{ steps.release.outputs.release_created }}
