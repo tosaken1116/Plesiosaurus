@@ -11,6 +11,9 @@ export const genAnimation = (
     delay: '0s',
   },
 ): GeneratedAnimationValue => ({
-  className: hoverBackGroundColorFadeAnimation(props),
+  className: hoverBackGroundColorFadeAnimation({
+    afterColor: props.afterColor,
+    easing: props.easing,
+  }),
   style: { '--transition-duration': props.duration, '--transition-delay': props.delay },
 })

@@ -16,7 +16,9 @@ export const genAnimation = (
 ): GeneratedAnimationValue => {
   if (isHover) {
     return {
-      className: clsx(hoverTextColorAnimation(props)),
+      className: clsx(
+        hoverTextColorAnimation({ afterColor: props.afterColor, easing: props.easing }),
+      ),
       style: {
         '--transition-duration': props.duration,
         '--transition-delay': props.delay,
