@@ -7,9 +7,9 @@ import { clsx } from 'clsx'
 import { fontStyles } from '../../font.css'
 
 export type TypographyProps = {
-  component: React.ElementType
+  component: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'strong'
   variant: keyof typeof fontStyles
-  children: React.ReactNode
+  children: string
   className?: string
 } & React.HTMLAttributes<HTMLHeadingElement> &
   React.HTMLAttributes<HTMLParagraphElement> &
