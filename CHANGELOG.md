@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.0.3...v0.1.0) (2023-12-13)
+
+
+### Features
+
+* add animation base ([f2b1ec4](https://github.com/tosaken1116/Plesiosaurus/commit/f2b1ec4bdcf853ec56c6cd6900cd0009b817fc62))
+
 ## [0.0.3](https://github.com/tosaken1116/Plesiosaurus/compare/v0.0.2...v0.0.3) (2023-12-01)
 
 
