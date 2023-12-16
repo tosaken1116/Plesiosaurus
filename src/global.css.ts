@@ -106,6 +106,13 @@ export const vars = createGlobalTheme(':root', {
       fontWeight: '400',
       lineHeight: '24px',
     },
+    'strong': {
+      fontFamily: 'Inter',
+      fontSize: '16px',
+      fontStyle: 'normal',
+      fontWeight: '600',
+      lineHeight: '24px',
+    },
   },
   colors: {
     // red, pink, purple, indigo, blue, cyan, teal, green, lime, yellow, orange, brown, gray, coolGray, trueGray, warmGray
