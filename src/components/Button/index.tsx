@@ -11,7 +11,6 @@ import { resolveAnimation } from '../../libs/animation'
 import { button } from './index.css'
 
 import type { AnimationProps } from '../../libs/animation/variant/AnimationFactory'
-import type { AnimationBaseProps } from '../../libs/animation/variant/type'
 import type { RecipeVariants } from '@vanilla-extract/recipes'
 
 // TODO: 将来的には削除してそれぞれのanimationを作成する
@@ -20,9 +19,8 @@ type AnimationObjectType = 'border' | 'scaleUp' | 'scaleDown'
 export type ButtonProps = RecipeVariants<typeof button> &
   React.HTMLProps<HTMLButtonElement> &
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    animationObject?: AnimationObjectType
-  } & AnimationBaseProps &
-  AnimationProps
+    animationProps?: AnimationProps
+  }
 
 type ButtonPropsWithoutUnnecessaryAttributes = Omit<
   ButtonProps,
@@ -62,36 +60,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
     radius,
     outline,
     typography,
-    delay = '0s',
-    duration = '0.3s',
-    easing,
     ref,
     children,
+    animationProps,
     ...props
   }: ButtonPropsWithoutUnnecessaryAttributes) => {
-    const { style: bgColorStyle, className: bgColorClassName } = resolveAnimation({
-      hover: {
-        key: 'bgColorFade',
-        option: {
-          delay: delay,
-          afterColor: state,
-          duration: duration,
-          easing: easing,
-        },
-      },
-    })
-
-    const { style: textStyle, className: textClassName } = resolveAnimation({
-      hover: {
-        key: 'textColor',
-        option: {
-          delay: delay,
-          afterColor: state,
-          duration: duration,
-          easing: easing,
-        },
-      },
-    })
+    const { style: propsStyle, className: propsClassName } = resolveAnimation(
+      animationProps ?? {},
+    )
 
     return (
       <button
@@ -102,13 +78,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
             outline: outline,
             typography: typography,
           }),
-          textClassName,
-          bgColorClassName,
+          propsClassName,
           className,
         )}
         ref={ref}
         {...props}
-        style={{ ...bgColorStyle, ...textStyle }}
+        style={{ ...propsStyle }}
       >
         {children}
       </button>
