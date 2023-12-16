@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.3](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.2...v0.5.3) (2023-12-16)
+
+
+### Bug Fixes
+
+* exclude .stoires out of bundling ([8e0efdb](https://github.com/tosaken1116/Plesiosaurus/commit/8e0efdb0af725007186fd82f0fc9a1b5ccd20f79))
+* type reference ([4d02757](https://github.com/tosaken1116/Plesiosaurus/commit/4d02757b0c871090126d8ca877c397c5e6e136c3))
+
 ## [0.5.2](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.1...v0.5.2) (2023-12-16)
 
 
