@@ -1,0 +1,2 @@
+export declare const fontStyles: Record<"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "body-large" | "body-medium" | "body-small" | "p" | "backquote" | "strong", string>;
+//# sourceMappingURL=font.css.d.ts.map

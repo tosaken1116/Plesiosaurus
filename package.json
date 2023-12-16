@@ -2,7 +2,7 @@
   "name": "@plesiosaurus/ui",
   "author": "Team Issei Absence",
   "license": "MIT",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A simple & animate-full UI component library build with vanilla-extract.🍦🩵",
   "main": "./dist/index.js",
   "types": "./types/index.d.ts",
@@ -42,7 +42,6 @@
     "ci:test-group": "run-p test:*",
     "ci:check": "run-p check:*",
     "commit": "cz",
-    "prepare": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable"
   },
@@ -55,6 +54,8 @@
   "dependencies": {
     "@floating-ui/react": "^0.26.4",
     "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/sprinkles": "^1.6.1",
+    "@vanilla-extract/dynamic": "^2.1.0",
     "hygen": "^6.2.11",
     "lucide-react": "^0.297.0",
     "modern-normalize": "^2.0.0",

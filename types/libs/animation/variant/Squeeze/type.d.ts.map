@@ -1,0 +1,1 @@
+{"version":3,"file":"type.d.ts","sourceRoot":"","sources":["../../../../../src/libs/animation/variant/Squeeze/type.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,SAAS,CAAA;AAEjD,MAAM,MAAM,WAAW,GAAG;IACxB,IAAI,CAAC,EAAE,GAAG,GAAG,GAAG,CAAA;CACjB,CAAA;AAED,MAAM,MAAM,YAAY,GAAG;IACzB,GAAG,EAAE,SAAS,CAAA;IACd,MAAM,EAAE,WAAW,GAAG,kBAAkB,CAAA;CACzC,CAAA"}
