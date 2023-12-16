@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.5](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.4...v0.5.5) (2023-12-16)
+
+
+### Bug Fixes
+
+* cssバンドルに失敗する問題を修正 ([6420978](https://github.com/tosaken1116/Plesiosaurus/commit/64209785242aa00886ccf397674fa4fb5b4cd7c5))
+
 ## [0.5.4](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.3...v0.5.4) (2023-12-16)
 
 
