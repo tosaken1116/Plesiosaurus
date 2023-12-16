@@ -4,10 +4,6 @@ import { defineConfig } from 'vitest/config'
 import pkg from './package.json'
 import path from 'path'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
-import { extname, relative } from 'path'
-import { fileURLToPath } from 'node:url'
-import { glob } from 'glob'
-import { type } from './types/src/libs/animation/variant/Shake/index'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -29,14 +25,6 @@ export default defineConfig({
           return `${fileName}.js`
         },
       },
-      input: Object.fromEntries(
-        glob.sync('src/**/!(*.stories).{ts,tsx}').map((file) => {
-          return [
-            relative('src', file.slice(0, file.length - extname(file).length)),
-            fileURLToPath(new URL(file, import.meta.url)),
-          ]
-        }),
-      ),
     },
   },
   test: {
