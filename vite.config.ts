@@ -22,7 +22,7 @@ export default defineConfig({
         interop: 'auto', // the default mode of "default" mimics NodeJS behavior and is different from TypeScript esModuleInterop
         exports: 'named', // 'default' can cause issues when generating CommonJS output that is meant to be interchangeable with ESM output
         // preserveModules: true, // preserve the directory structure of the source code(in order to preserve module tree structure)
-        // preserveModulesRoot: 'src',
+        preserveModulesRoot: 'src',
         entryFileNames: ({ name: fileName }) => {
           // ChunkInfo will be passed
           return `${fileName}.js`
