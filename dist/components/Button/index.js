@@ -1,39 +1,39 @@
 import { j as n } from "../../node_modules/react/jsx-runtime.js";
-import "../../node_modules/modern-normalize/modern-normalize.css.js";
+/* empty css                                                       */
 import { forwardRef as p } from "react";
-import { clsx as c } from "../../node_modules/clsx/dist/clsx.js";
+import { clsx as f } from "../../node_modules/clsx/dist/clsx.js";
 import { layout as j } from "../../global.css.js";
 import { button as v } from "./index.css.js";
 import { resolveAnimation as a } from "../../libs/animation/genAnimation.js";
-const A = p(
+const B = p(
   ({
     className: t,
     state: o,
     radius: r,
-    outline: s,
-    typography: f,
-    delay: e = "0s",
+    outline: e,
+    typography: i,
+    delay: s = "0s",
     duration: m = "0.3s",
     easing: l,
-    ref: i,
+    ref: c,
     children: x,
     ...C
   }) => {
-    const { style: y, className: u } = a({
+    const { style: y, className: N } = a({
       hover: {
         key: "bgColorFade",
         option: {
-          delay: e,
+          delay: s,
           afterColor: o,
           duration: m,
           easing: l
         }
       }
-    }), { style: N, className: b } = a({
+    }), { style: b, className: u } = a({
       hover: {
         key: "textColor",
         option: {
-          delay: e,
+          delay: s,
           afterColor: o,
           duration: m,
           easing: l
@@ -43,28 +43,28 @@ const A = p(
     return /* @__PURE__ */ n.jsx(
       "button",
       {
-        className: c(
+        className: f(
           v({
             state: o,
             radius: r,
-            outline: s,
-            typography: f
+            outline: e,
+            typography: i
           }),
-          b,
           u,
+          N,
           t
         ),
-        ref: i,
+        ref: c,
         ...C,
-        style: { ...y, ...N },
+        style: { ...y, ...b },
         children: x
       }
     );
   }
-), E = p(
-  ({ className: t, children: o, ...r }, s) => /* @__PURE__ */ n.jsx("span", { className: c(j.center, t), ref: s, ...r, children: o })
+);
+p(
+  ({ className: t, children: o, ...r }, e) => /* @__PURE__ */ n.jsx("span", { className: f(j.center, t), ref: e, ...r, children: o })
 );
 export {
-  A as Button,
-  E as ButtonIcon
+  B as Button
 };
