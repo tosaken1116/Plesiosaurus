@@ -2,7 +2,7 @@
   "name": "@plesiosaurus/ui",
   "author": "Team Issei Absence",
   "license": "MIT",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A simple & animate-full UI component library build with vanilla-extract.🍦🩵",
   "main": "./dist/index.js",
   "types": "./types/index.d.ts",
