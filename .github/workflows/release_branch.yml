@@ -23,13 +23,13 @@ jobs:
             - name: Check if release branch exists
               id: check_branch
               run: |
-                  if git ls-remote --heads origin release-${{ env.LATEST_TAG }}-protected; then
-                      echo "Branch exists"
-                      echo "BRANCH_EXISTS=true" >> $GITHUB_ENV
-                  else
-                      echo "Branch does not exist"
-                      echo "BRANCH_EXISTS=false" >> $GITHUB_ENV
-                  fi
+                  branch_is_existing=$(
+                    git fetch origin ${NEW_BRANCH_NAME} &&
+                    echo true ||
+                    echo false
+                  )
+                  echo "BRANCH_EXISTS=${branch_is_existing}" >> $GITHUB_ENV
+
 
             - name: Create release branch
               if: env.BRANCH_EXISTS == 'false'
