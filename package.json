@@ -16,7 +16,9 @@
     "./types"
   ],
   "sideEffects": false,
+  "private": false,
   "publishConfig": {
+    "access": "public",
     "registry": "https://npm.pkg.github.com/"
   },
   "engines": {
