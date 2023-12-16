@@ -1,9 +1,11 @@
 import { genBackGroundColorFadeAnimation } from './BackGroundColorFade'
 import { genSlideAnimation } from './Slide'
+import { genSqueezeAnimation } from './Squeeze'
 import { genTextColorAnimation } from './TextColor'
 
 import type { BackGroundColorFadeProps } from './BackGroundColorFade'
 import type { SlideProps } from './Slide'
+import type { SqueezeProps } from './Squeeze'
 import type { TextColorProps } from './TextColor'
 import type { GeneratedAnimationValue } from './type'
 
@@ -12,7 +14,11 @@ export type AnimationProps = {
   hover?: AnimationObject
 }
 
-export type AnimationObject = SlideProps | BackGroundColorFadeProps | TextColorProps
+export type AnimationObject =
+  | SlideProps
+  | BackGroundColorFadeProps
+  | TextColorProps
+  | SqueezeProps
 
 export const AnimationFactory: Record<
   AnimationObject['key'],
@@ -21,4 +27,5 @@ export const AnimationFactory: Record<
   slide: genSlideAnimation,
   bgColorFade: genBackGroundColorFadeAnimation,
   textColor: genTextColorAnimation,
+  squeeze: genSqueezeAnimation,
 } as const
