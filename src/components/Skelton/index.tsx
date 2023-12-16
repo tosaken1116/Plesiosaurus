@@ -1,5 +1,7 @@
 import 'modern-normalize/modern-normalize.css'
 import '../../reset.css'
+import type { CSSProperties } from 'react'
+
 import clsx from 'clsx'
 
 import { skeleton } from './index.css'
@@ -29,7 +31,7 @@ export const Skelton = ({
 }: SkeltonProps): JSX.Element => (
   <div
     className={clsx(skeleton({ radius }), className)}
-    style={{ '--width': `${width}px`, '--height': `${height}px` }}
+    style={{ '--width': `${width}px`, '--height': `${height}px` } as CSSProperties}
     role='none'
   />
 )
