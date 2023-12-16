@@ -9,7 +9,7 @@ import type { ShakeProps } from './Shake'
 import type { SlideProps } from './Slide'
 import type { SqueezeProps } from './Squeeze'
 import type { TextColorProps } from './TextColor'
-import type { GeneratedAnimationValue } from './type'
+import type { GeneratedAnimationValue } from '..'
 
 export type AnimationProps = {
   in?: AnimationObject
