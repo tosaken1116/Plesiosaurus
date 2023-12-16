@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.1](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.0...v0.5.1) (2023-12-16)
+
+
+### Bug Fixes
+
+* bundling together in one file ([446edd3](https://github.com/tosaken1116/Plesiosaurus/commit/446edd34379c8cfead44b20bcaf198ffa2064f10))
+* releasing all Components so-far made ([457c411](https://github.com/tosaken1116/Plesiosaurus/commit/457c411b2dd2b459a6668bbcfd9b41474beb6b25))
+
 ## [0.5.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.4.1...v0.5.0) (2023-12-16)
 
 
