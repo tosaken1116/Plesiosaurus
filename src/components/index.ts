@@ -1,3 +1,5 @@
+export * from './Badge'
+
 export * from './Stack'
 
 export * from './Divider'
