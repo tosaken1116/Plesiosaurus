@@ -1,14 +1,14 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react'
 
-import "@testing-library/jest-dom";
-import { Checkbox } from ".";
+import '@testing-library/jest-dom'
+import { Checkbox } from '.'
 
-describe("ui/Checkbox", () => {
-  it("title is exist", () => {
-    render(<Checkbox />);
+describe('ui/Checkbox', () => {
+  it('title is exist', () => {
+    render(<Checkbox id='checkbox' />)
 
-    const title = screen.getByText(/this is ui of Checkbox/);
+    const checkbox = screen.getByRole('checkbox')
 
-    expect(title).toBeInTheDocument();
-  });
-});
+    expect(checkbox).toBeInTheDocument()
+  })
+})
