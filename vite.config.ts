@@ -4,6 +4,9 @@ import { defineConfig } from 'vitest/config'
 import pkg from './package.json'
 import path from 'path'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
+import { extname, relative } from 'path'
+import { fileURLToPath } from 'node:url'
+import { glob } from 'glob'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -22,12 +25,22 @@ export default defineConfig({
         interop: 'auto', // the default mode of "default" mimics NodeJS behavior and is different from TypeScript esModuleInterop
         exports: 'named', // 'default' can cause issues when generating CommonJS output that is meant to be interchangeable with ESM output
         // preserveModules: true, // preserve the directory structure of the source code(in order to preserve module tree structure)
-        preserveModulesRoot: 'src',
+        // preserveModulesRoot: 'src',
         entryFileNames: ({ name: fileName }) => {
           // ChunkInfo will be passed
           return `${fileName}.js`
         },
       },
+      input: Object.fromEntries(
+        glob.sync('src/**/*.{ts,tsx}').map((file) => [
+          // The name of the entry point
+          // lib/nested/foo.ts becomes nested/foo
+          relative('src', file.slice(0, file.length - extname(file).length)),
+          // The absolute path to the entry file
+          // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
+          fileURLToPath(new URL(file, import.meta.url)),
+        ]),
+      ),
     },
   },
   test: {

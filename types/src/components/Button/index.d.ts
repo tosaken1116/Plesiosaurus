@@ -3,12 +3,11 @@
 import 'modern-normalize/modern-normalize.css';
 import { button } from './index.css';
 import type { AnimationProps } from '../../libs/animation/variant/AnimationFactory';
-import type { AnimationBaseProps } from '../../libs/animation/variant/type';
 import type { RecipeVariants } from '@vanilla-extract/recipes';
 type AnimationObjectType = 'border' | 'scaleUp' | 'scaleDown';
 export type ButtonProps = RecipeVariants<typeof button> & React.HTMLProps<HTMLButtonElement> & React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    animationObject?: AnimationObjectType;
-} & AnimationBaseProps & AnimationProps;
+    animationProps?: AnimationProps;
+};
 type ButtonPropsWithoutUnnecessaryAttributes = Omit<ButtonProps, 'animations' | 'transform' | AnimationObjectType>;
 /**
  * Button component with customizable styling and animations.
