@@ -15,6 +15,7 @@ export const button = recipe({
     alignItems: 'center',
     gap: '10px',
     border: 'none',
+    cursor: 'pointer',
   },
 
   variants: {
