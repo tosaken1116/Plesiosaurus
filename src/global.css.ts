@@ -111,7 +111,7 @@ export const vars = createGlobalTheme(':root', {
       fontSize: '16px',
       fontStyle: 'normal',
       fontWeight: '600',
-      lineHeight: '28px',
+      lineHeight: '24px',
     },
   },
   colors: {
@@ -292,14 +292,6 @@ export const vars = createGlobalTheme(':root', {
       800: '#44403C',
       900: '#292524',
     },
-  },
-})
-
-export const layout = styleVariants({
-  center: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 })
 

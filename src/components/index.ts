@@ -11,3 +11,5 @@ export * from './Typography'
 export * from './CheckBox'
 
 export * from './Dialog'
+
+export * from './Grid'
