@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.2](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.1...v0.5.2) (2023-12-16)
+
+
+### Bug Fixes
+
+* add types ([621e6cd](https://github.com/tosaken1116/Plesiosaurus/commit/621e6cd499b97915de09754fd7b7261413c37df8))
+
 ## [0.5.1](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.0...v0.5.1) (2023-12-16)
 
 
