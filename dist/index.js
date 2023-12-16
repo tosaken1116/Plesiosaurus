@@ -1,7 +1,4 @@
-import { Button as r, ButtonIcon as p } from "./components/Button/index.js";
-import { Typography as e } from "./components/Typography/index.js";
+import { Button as r } from "./components/Button/index.js";
 export {
-  r as Button,
-  p as ButtonIcon,
-  e as Typography
+  r as Button
 };
