@@ -17,13 +17,6 @@ type Story = StoryObj<typeof Checkbox>
 export const Default: Story = {
   args: {
     id: 'checkbox_storybook',
+    label: 'Checkbox',
   },
-  decorators: [
-    (Story): JSX.Element => (
-      <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-        <Story />
-        <label htmlFor='checkbox_storybook'>This is a checkbox.</label>
-      </div>
-    ),
-  ],
 }

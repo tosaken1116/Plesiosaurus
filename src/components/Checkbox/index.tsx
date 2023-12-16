@@ -1,16 +1,32 @@
 import 'modern-normalize/modern-normalize.css'
 import '../../reset.css'
-import { forwardRef } from 'react'
-import type { HTMLAttributes } from 'react'
+import { forwardRef, useState } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
 import clsx from 'clsx'
+import { CheckSquare2 } from 'lucide-react'
 
-import { inputDefaultStyle } from './index.css'
+import {
+  checkContainerStyle,
+  containerStyle,
+  iconStyle,
+  inputDefaultStyle,
+  labelStyle,
+} from './index.css'
 
 export type CheckboxProps = {
   className?: string
+  customCheckbox?: CustomCheckBox
+  checked?: boolean
+  label?: ReactNode
+  color?: string
 } & HTMLAttributes<HTMLInputElement>
 
+type CustomCheckBox = {
+  checked: ReactNode
+  unchecked: ReactNode
+}
+const noop = (): void => {}
 /**
  * @name Checkbox component
  * Checkboxを表示するコンポーネント
@@ -19,13 +35,37 @@ export type CheckboxProps = {
  * @example <Checkbox a={1} />
  */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ className, id, ...props }, ref): JSX.Element => (
-    <input
-      ref={ref}
-      type='checkbox'
-      id={id}
-      className={clsx(inputDefaultStyle, className)}
-      {...props}
-    />
-  ),
+  ({ className, id, customCheckbox, ...props }, ref): JSX.Element => {
+    const checkedIcon = customCheckbox?.checked ?? (
+      <CheckSquare2 fill={props.color || 'aquamarine'} color='gray' />
+    )
+
+    const uncheckedIcon = customCheckbox?.unchecked ?? <CheckSquare2 color='gray' />
+    const handleChange = props.onChange ?? noop
+    const [checked, setChecked] = useState(props.checked || false)
+    return (
+      <label className={containerStyle}>
+        <span className={checkContainerStyle}>
+          {checked ? (
+            <span className={iconStyle}> {checkedIcon}</span>
+          ) : (
+            <span className={iconStyle}> {uncheckedIcon}</span>
+          )}
+          <input
+            ref={ref}
+            type='checkbox'
+            id={id}
+            onChange={(e) => {
+              setChecked(!checked)
+              handleChange(e)
+            }}
+            className={clsx(inputDefaultStyle, className)}
+            {...props}
+          />
+        </span>
+
+        <p className={labelStyle}>{props.label}</p>
+      </label>
+    )
+  },
 )
