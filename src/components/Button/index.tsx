@@ -7,7 +7,6 @@ import { clsx } from 'clsx'
 
 import { layout } from '../../global.css'
 import { resolveAnimation } from '../../libs/animation'
-import { assertNonNullable } from '../../libs/assertNonNullable'
 
 import { button } from './index.css'
 
@@ -63,7 +62,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
     radius,
     outline,
     typography,
-    animationObject = 'border',
     delay = '0s',
     duration = '0.3s',
     easing,
@@ -71,12 +69,29 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
     children,
     ...props
   }: ButtonPropsWithoutUnnecessaryAttributes) => {
-    assertNonNullable(animationObject)
-    assertNonNullable(state)
-    const animationKey =
-      animationObject == 'scaleUp' || animationObject == 'scaleDown'
-        ? 'transform'
-        : animationObject
+    const { style: bgColorStyle, className: bgColorClassName } = resolveAnimation({
+      hover: {
+        key: 'bgColorFade',
+        option: {
+          delay: delay,
+          afterColor: state,
+          duration: duration,
+          easing: easing,
+        },
+      },
+    })
+
+    const { style: textStyle, className: textClassName } = resolveAnimation({
+      hover: {
+        key: 'textColor',
+        option: {
+          delay: delay,
+          afterColor: state,
+          duration: duration,
+          easing: easing,
+        },
+      },
+    })
 
     return (
       <button
@@ -86,40 +101,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonPropsWithoutUnnecessaryAttrib
             radius: radius,
             outline: outline,
             typography: typography,
-            animations:
-              animationObject == 'scaleUp'
-                ? 'scaleUp'
-                : animationObject == 'scaleDown'
-                ? 'scaleDown'
-                : `${state}--${animationObject}`,
-            [animationKey]: easing,
           }),
-          resolveAnimation({
-            hover: {
-              key: 'bgColorFade',
-              option: {
-                delay: delay,
-                afterColor: state,
-                duration: duration,
-                easing: easing,
-              },
-            },
-          }),
-          resolveAnimation({
-            hover: {
-              key: 'textColor',
-              option: {
-                delay: delay,
-                afterColor: state,
-                duration: duration,
-                easing: easing,
-              },
-            },
-          }),
+          textClassName,
+          bgColorClassName,
           className,
         )}
         ref={ref}
         {...props}
+        style={{ ...bgColorStyle, ...textStyle }}
       >
         {children}
       </button>
