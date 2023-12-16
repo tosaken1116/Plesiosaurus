@@ -5,7 +5,7 @@ import { forwardRef } from 'react'
 
 import { clsx } from 'clsx'
 
-import { layout } from '../../global.css'
+import { layout } from '../../layout.css'
 import { resolveAnimation } from '../../libs/animation'
 
 import { button } from './index.css'
