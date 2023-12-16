@@ -15,6 +15,7 @@ export const button = recipe({
     alignItems: 'center',
     gap: '10px',
     border: 'none',
+    cursor: 'pointer',
   },
 
   variants: {
@@ -94,48 +95,6 @@ export const button = recipe({
           },
         },
       },
-      'primary--backgroundColor': {
-        selectors: {
-          '&:hover': {
-            backgroundColor: vars.hover.primary,
-          },
-        },
-      },
-      'secondary--backgroundColor': {
-        selectors: {
-          '&:hover': {
-            backgroundColor: vars.hover.secondary,
-          },
-        },
-      },
-      'error--backgroundColor': {
-        selectors: {
-          '&:hover': {
-            backgroundColor: vars.hover.error,
-          },
-        },
-      },
-      'primary--color': {
-        selectors: {
-          '&:hover': {
-            color: vars.hover.primary,
-          },
-        },
-      },
-      'secondary--color': {
-        selectors: {
-          '&:hover': {
-            color: vars.hover.secondary,
-          },
-        },
-      },
-      'error--color': {
-        selectors: {
-          '&:hover': {
-            color: vars.hover.error,
-          },
-        },
-      },
     },
     transform: {
       ease: {
@@ -154,23 +113,6 @@ export const button = recipe({
         transition: 'transform 0.2s liner',
       },
     },
-    backgroundColor: {
-      ease: {
-        transition: 'background-color 0.3s ease',
-      },
-      easeIn: {
-        transition: 'background-color 0.3s ease-in',
-      },
-      easeOut: {
-        transition: 'background-color 0.3s ease-out',
-      },
-      easeInOut: {
-        transition: 'background-color 0.3s ease-in-out',
-      },
-      liner: {
-        transition: 'background-color 0.3s liner',
-      },
-    },
     border: {
       ease: {
         transition: 'border 0.3s ease',
@@ -186,23 +128,6 @@ export const button = recipe({
       },
       liner: {
         transition: 'border 0.3s liner',
-      },
-    },
-    color: {
-      ease: {
-        transition: 'color 0.3s ease',
-      },
-      easeIn: {
-        transition: 'color 0.3s ease-in',
-      },
-      easeOut: {
-        transition: 'color 0.3s ease-out',
-      },
-      easeInOut: {
-        transition: 'color 0.3s ease-in-out',
-      },
-      liner: {
-        transition: 'color 0.3s liner',
       },
     },
   },
