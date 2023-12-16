@@ -1,12 +1,13 @@
+import { genBackGroundColorFadeAnimation } from './BackGroundColorFade'
 import { genSlideAnimation } from './Slide'
 import { genSqueezeAnimation } from './Squeeze'
 import { genTextColorAnimation } from './TextColor'
 
-import type { BackGroundColorFadeProps } from './BackGroundColorFade/type'
+import type { BackGroundColorFadeProps } from './BackGroundColorFade'
 import type { SlideProps } from './Slide'
 import type { SqueezeProps } from './Squeeze'
 import type { TextColorProps } from './TextColor'
-import type { GeneratedAnimationValue } from './type'
+import type { GeneratedAnimationValue } from '..'
 
 export type AnimationProps = {
   in?: AnimationObject
