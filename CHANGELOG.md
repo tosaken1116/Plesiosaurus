@@ -1,5 +1,37 @@
 # Changelog
 
+## [0.5.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.4.1...v0.5.0) (2023-12-16)
+
+
+### Features
+
+* 🌟 Typography Component (without animation) ([62c8a96](https://github.com/tosaken1116/Plesiosaurus/commit/62c8a96dc57fd5a8af664d41a886d415ef540193))
+* 🌟Add Button Component ([99b4a2c](https://github.com/tosaken1116/Plesiosaurus/commit/99b4a2c3029065ddba7ecf506c28e9bdd706439e))
+* add animation base ([41affc4](https://github.com/tosaken1116/Plesiosaurus/commit/41affc45bc14fc00d354eb73fa0babfcf445087d))
+* add Button Component ([406752a](https://github.com/tosaken1116/Plesiosaurus/commit/406752a289f0492903053e8bf01626181e4f6536))
+* add CheckBox ([32e24c2](https://github.com/tosaken1116/Plesiosaurus/commit/32e24c21640c4f67618f50c444c5052706c43a9f))
+* add shake animation ([62cf477](https://github.com/tosaken1116/Plesiosaurus/commit/62cf47779bf270688aa3131c8e24f76ad13cb6fc))
+* add squeeze animation ([114dee2](https://github.com/tosaken1116/Plesiosaurus/commit/114dee24cf8840a1d81fad7587d1e26aba4dff1f))
+* animation only hover or  in ([f520927](https://github.com/tosaken1116/Plesiosaurus/commit/f5209276f891f1089cb7ead94967f1edddc02f6e))
+* button Component ([481e26b](https://github.com/tosaken1116/Plesiosaurus/commit/481e26b47a9e4e1abaeca0bf36a8a53cd01829cd))
+* buttonコンポーネント(with backGoundClor, textColor animations) ([d309b65](https://github.com/tosaken1116/Plesiosaurus/commit/d309b659e994f0f006cd0e8890b9575255018510))
+* change Stack spacing ([f5edd90](https://github.com/tosaken1116/Plesiosaurus/commit/f5edd9060606a134fb5631250be26a997c840f55))
+* css bundle support ([9221588](https://github.com/tosaken1116/Plesiosaurus/commit/9221588c937e1c461aa7bbdd89ce5ee6fed56f2a))
+* typography component ([7b2fbff](https://github.com/tosaken1116/Plesiosaurus/commit/7b2fbffdd0bc5e4efb164f242636b46859e6fccb))
+
+
+### Bug Fixes
+
+* animation props assign ([e2cd58a](https://github.com/tosaken1116/Plesiosaurus/commit/e2cd58ac604f5508af6284f01c41191e6a470790))
+* bundling css into JS ([f207bf7](https://github.com/tosaken1116/Plesiosaurus/commit/f207bf723edd48c6c6405b54a5c43d3917144010))
+* change genAnimationBAse ([6c085b8](https://github.com/tosaken1116/Plesiosaurus/commit/6c085b8de3ebd0d5619fb5f6b97887eac299ff2f))
+* include build files ([01f2493](https://github.com/tosaken1116/Plesiosaurus/commit/01f24932cca8cb89baf3a777298d9f145ef353e6))
+* refactor animationProps ([76a848f](https://github.com/tosaken1116/Plesiosaurus/commit/76a848f574b1e0476e7795e3f1739036c7416dd4))
+* remove divider test ([e12596d](https://github.com/tosaken1116/Plesiosaurus/commit/e12596d4af4ee1984dad2ea2beee812f488551aa))
+* remove prepare script ([7a9cb65](https://github.com/tosaken1116/Plesiosaurus/commit/7a9cb65f3e2ffe11f46451573560770eb8de3050))
+* typographyPropsの仕様更新 ([2069832](https://github.com/tosaken1116/Plesiosaurus/commit/206983275241f43bb93b2cd21382fff639239343))
+* vite-plugin-lib-inject-cssによるstorybook buildの修正 ([f561c25](https://github.com/tosaken1116/Plesiosaurus/commit/f561c259d5c2380a551bcb50174109ffd287c882))
+
 ## [0.4.1](https://github.com/tosaken1116/Plesiosaurus/compare/v0.4.0...v0.4.1) (2023-12-16)
 
 
