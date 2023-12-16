@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.1.1...v0.2.0) (2023-12-16)
+
+
+### Features
+
+* add Button Component ([cee8932](https://github.com/tosaken1116/Plesiosaurus/commit/cee8932c380f4a3319b00ab5e9a7220bae090748))
+
 ## [0.1.1](https://github.com/tosaken1116/Plesiosaurus/compare/v0.1.0...v0.1.1) (2023-12-16)
 
 
