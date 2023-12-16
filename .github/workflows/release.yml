@@ -46,6 +46,7 @@ jobs:
                   registry-url: "https://registry.npmjs.org"
               if: ${{ steps.release.outputs.release_created }}
             - uses: actions/checkout@v4
+              if: ${{ steps.release.outputs.release_created }}
             - name: Setup
               uses: ./.github/actions/bun_ci
 
