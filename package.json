@@ -2,7 +2,7 @@
   "name": "@plesiosaurus/ui",
   "author": "Team Issei Absence",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.5.5",
   "description": "A simple & animate-full UI component library build with vanilla-extract.🍦🩵",
   "main": "./dist/index.js",
   "types": "./types/index.d.ts",
@@ -16,7 +16,9 @@
     "./types"
   ],
   "sideEffects": false,
+  "private": false,
   "publishConfig": {
+    "access": "public",
     "registry": "https://npm.pkg.github.com/"
   },
   "engines": {
@@ -36,10 +38,10 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "new:ui": "hygen generator ui",
+    "new:animation": "hygen generator animation",
     "ci:test-group": "run-p test:*",
     "ci:check": "run-p check:*",
     "commit": "cz",
-    "prepare": "husky install",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable"
   },
@@ -52,14 +54,18 @@
   "dependencies": {
     "@floating-ui/react": "^0.26.4",
     "@vanilla-extract/css": "^1.14.0",
+    "@vanilla-extract/dynamic": "^2.1.0",
+    "@vanilla-extract/sprinkles": "^1.6.1",
     "hygen": "^6.2.11",
+    "lucide-react": "^0.297.0",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.297.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
@@ -71,12 +77,12 @@
     "@storybook/addon-links": "^7.5.3",
     "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/blocks": "^7.5.3",
+    "@storybook/builder-vite": "^7.6.5",
     "@storybook/react": "^7.5.3",
     "@storybook/react-vite": "^7.5.3",
     "@storybook/testing-library": "^0.2.2",
-    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.0",
-    "@types/jest": "^29.5.8",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -99,6 +105,7 @@
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "^3.0.0",
+    "glob": "^10.3.10",
     "husky": "^8.0.0",
     "jsdom": "^23.0.0",
     "lint-staged": "^15.1.0",
@@ -108,6 +115,7 @@
     "storybook": "^7.5.3",
     "typescript": "^5.0.2",
     "vite": "5.0.10",
+    "vite-plugin-lib-inject-css": "^1.3.0",
     "vitest": "^1.0.1"
   },
   "volta": {

@@ -82,6 +82,8 @@ export const hoverSlideAnimation = recipe({
     ':hover': {
       animation: 'none',
     },
+    transitionDuration: 'var(--animation-duration)',
+    transitionDelay: 'var(--animation-delay)',
   },
   variants: {
     direction: {
