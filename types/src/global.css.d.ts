@@ -289,6 +289,5 @@ export declare const vars: {
         };
     };
 };
-export declare const layout: Record<"center", string>;
 export declare const outline: Record<"primary" | "secondary" | "error", string>;
 //# sourceMappingURL=global.css.d.ts.map
