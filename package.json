@@ -42,7 +42,7 @@
     "ci:test-group": "run-p test:*",
     "ci:check": "run-p check:*",
     "commit": "cz",
-    "prepare": "husky install",
+    "prepare": "npm run build",
     "prepack": "pinst --disable",
     "postpack": "pinst --enable"
   },
