@@ -30,10 +30,10 @@ export const RadioButtonGroup = ({
   className,
   zoomIn,
   ...props
-}: RadioButtonGroupProps) => {
+}: RadioButtonGroupProps): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState(defaultValue)
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setSelectedValue(e.target.value)
   }
 

@@ -13,7 +13,7 @@ describe('ui/RadioButtonGroup', () => {
       />,
     )
 
-    const title = screen.getByText(/this is ui of RadioButtonGroup/)
+    const title = screen.getByRole('list')
 
     expect(title).toBeInTheDocument()
   })
