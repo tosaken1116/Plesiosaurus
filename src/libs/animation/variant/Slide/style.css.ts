@@ -55,6 +55,8 @@ export const slideAnimation = recipe({
     animationFillMode: 'forwards',
     animationDirection: 'normal',
     animationIterationCount: 1,
+    animationDuration: 'var(--animation-duration)',
+    animationDelay: 'var(--animation-delay)',
   },
   variants: {
     direction: {
@@ -69,28 +71,6 @@ export const slideAnimation = recipe({
       },
       right: {
         animationName: LTRAnimation,
-      },
-    },
-    duration: {
-      '1s': {
-        animationDuration: '1s',
-      },
-      '2s': {
-        animationDuration: '2s',
-      },
-      '3s': {
-        animationDuration: '3s',
-      },
-    },
-    delay: {
-      '1s': {
-        animationDelay: '1s',
-      },
-      '2s': {
-        animationDelay: '2s',
-      },
-      '3s': {
-        animationDelay: '3s',
       },
     },
   },
@@ -123,40 +103,6 @@ export const hoverSlideAnimation = recipe({
       'right': {
         ':hover': {
           transform: 'translateX(-100%)',
-        },
-      },
-    },
-    duration: {
-      '1s': {
-        ':hover': {
-          transitionDuration: '1s',
-        },
-      },
-      '2s': {
-        ':hover': {
-          transitionDuration: '2s',
-        },
-      },
-      '3s': {
-        ':hover': {
-          transitionDuration: '3s',
-        },
-      },
-    },
-    delay: {
-      '1s': {
-        ':hover': {
-          transitionDelay: '1s',
-        },
-      },
-      '2s': {
-        ':hover': {
-          transitionDelay: '2s',
-        },
-      },
-      '3s': {
-        ':hover': {
-          transitionDelay: '3s',
         },
       },
     },
