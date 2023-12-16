@@ -2,7 +2,7 @@
   "name": "@plesiosaurus/ui",
   "author": "Team Issei Absence",
   "license": "MIT",
-  "version": "0.0.3",
+  "version": "0.2.0",
   "description": "A simple & animate-full UI component library build with vanilla-extract.🍦🩵",
   "main": "./dist/index.js",
   "types": "./types/index.d.ts",
@@ -16,7 +16,9 @@
     "./types"
   ],
   "sideEffects": false,
+  "private": false,
   "publishConfig": {
+    "access": "public",
     "registry": "https://npm.pkg.github.com/"
   },
   "engines": {
@@ -39,7 +41,9 @@
     "ci:test-group": "run-p test:*",
     "ci:check": "run-p check:*",
     "commit": "cz",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepack": "pinst --disable",
+    "postpack": "pinst --enable"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
@@ -48,15 +52,18 @@
     ]
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.4",
     "@vanilla-extract/css": "^1.14.0",
     "hygen": "^6.2.11",
+    "lucide-react": "^0.297.0",
     "modern-normalize": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.297.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.1",
@@ -100,9 +107,10 @@
     "lint-staged": "^15.1.0",
     "markuplint": "^3.14.0",
     "npm-run-all": "^4.1.5",
+    "pinst": "^3.0.0",
     "storybook": "^7.5.3",
     "typescript": "^5.0.2",
-    "vite": "5.0.6",
+    "vite": "5.0.10",
     "vitest": "^1.0.1"
   },
   "volta": {

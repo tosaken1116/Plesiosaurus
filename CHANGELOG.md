@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.2.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.1.1...v0.2.0) (2023-12-16)
+
+
+### Features
+
+* add Button Component ([cee8932](https://github.com/tosaken1116/Plesiosaurus/commit/cee8932c380f4a3319b00ab5e9a7220bae090748))
+
+## [0.1.1](https://github.com/tosaken1116/Plesiosaurus/compare/v0.1.0...v0.1.1) (2023-12-16)
+
+
+### Bug Fixes
+
+* animation props assign ([b90fee7](https://github.com/tosaken1116/Plesiosaurus/commit/b90fee71fadfc150d471227d23b0059a53bc2ad1))
+
+## [0.1.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.0.3...v0.1.0) (2023-12-13)
+
+
+### Features
+
+* add animation base ([f2b1ec4](https://github.com/tosaken1116/Plesiosaurus/commit/f2b1ec4bdcf853ec56c6cd6900cd0009b817fc62))
+
 ## [0.0.3](https://github.com/tosaken1116/Plesiosaurus/compare/v0.0.2...v0.0.3) (2023-12-01)
 
 
