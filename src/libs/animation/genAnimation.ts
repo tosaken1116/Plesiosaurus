@@ -1,19 +1,16 @@
+import clsx from 'clsx'
+
 import { AnimationFactory } from './variant/AnimationFactory'
 
 import type { AnimationObject, AnimationProps } from './variant/AnimationFactory'
 
-const animateObject = (
-  props?: AnimationObject,
-  isHover = false,
-): { className: string; style: object } => {
+const animateObject = (props?: AnimationObject, isHover = false): string => {
   if (!props) {
-    return { className: '', style: {} }
+    return ''
   }
+  const { animation, option } = props
 
-  const { key, option } = props
-
-  const genFunction = AnimationFactory[key]
-
+  const genFunction = AnimationFactory[animation]
   if (genFunction) {
     return genFunction(option, isHover)
   } else {
@@ -21,15 +18,10 @@ const animateObject = (
   }
 }
 
-export const resolveAnimation = (
-  props: AnimationProps,
-): { className: string; style: object } => {
+export const genAnimation = (props: AnimationProps): string => {
   const { in: inAnimate, hover } = props
   if (!inAnimate && !hover) {
-    return { className: '', style: {} }
+    throw new Error('Missing animation props')
   }
-  if (inAnimate) {
-    return animateObject(inAnimate)
-  }
-  return animateObject(hover, true)
+  return clsx(animateObject(inAnimate), animateObject(hover, true))
 }
