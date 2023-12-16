@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.3.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.2.0...v0.3.0) (2023-12-16)
+
+
+### Features
+
+* typography component ([571b0fd](https://github.com/tosaken1116/Plesiosaurus/commit/571b0fd8cb8f29af74297f4759afeb0ea7416139))
+
+
+### Bug Fixes
+
+* typographyPropsの仕様更新 ([7eac459](https://github.com/tosaken1116/Plesiosaurus/commit/7eac459477638f3a8a80ac7811ba4ac9e379b15f))
+
+## [0.2.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.1.1...v0.2.0) (2023-12-16)
+
+
+### Features
+
+* add Button Component ([cee8932](https://github.com/tosaken1116/Plesiosaurus/commit/cee8932c380f4a3319b00ab5e9a7220bae090748))
+
 ## [0.1.1](https://github.com/tosaken1116/Plesiosaurus/compare/v0.1.0...v0.1.1) (2023-12-16)
 
 ### Bug Fixes
