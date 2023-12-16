@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.4](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.3...v0.5.4) (2023-12-16)
+
+
+### Bug Fixes
+
+* type export directory ([d90292a](https://github.com/tosaken1116/Plesiosaurus/commit/d90292a99f2432c40fbfc3e98c1638f9eef23754))
+
 ## [0.5.3](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.2...v0.5.3) (2023-12-16)
 
 
