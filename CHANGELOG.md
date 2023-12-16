@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/tosaken1116/Plesiosaurus/compare/v0.1.0...v0.1.1) (2023-12-16)
+
+
+### Bug Fixes
+
+* animation props assign ([b90fee7](https://github.com/tosaken1116/Plesiosaurus/commit/b90fee71fadfc150d471227d23b0059a53bc2ad1))
+
 ## [0.1.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.0.3...v0.1.0) (2023-12-13)
 
 
