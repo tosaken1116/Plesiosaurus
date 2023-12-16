@@ -7,13 +7,13 @@ import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import { extname, relative } from 'path'
 import { fileURLToPath } from 'node:url'
 import { glob } from 'glob'
+import { type } from './types/src/libs/animation/variant/Shake/index'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   root: './src',
   build: {
     lib: {
-      // Could also be a dictionary or array of multiple entry points
       entry: path.resolve(__dirname, './src/index.ts'),
       formats: ['es'],
     },
@@ -24,22 +24,18 @@ export default defineConfig({
       output: {
         interop: 'auto', // the default mode of "default" mimics NodeJS behavior and is different from TypeScript esModuleInterop
         exports: 'named', // 'default' can cause issues when generating CommonJS output that is meant to be interchangeable with ESM output
-        // preserveModules: true, // preserve the directory structure of the source code(in order to preserve module tree structure)
-        // preserveModulesRoot: 'src',
         entryFileNames: ({ name: fileName }) => {
           // ChunkInfo will be passed
           return `${fileName}.js`
         },
       },
       input: Object.fromEntries(
-        glob.sync('src/**/!(*.stories).{ts,tsx}').map((file) => [
-          // The name of the entry point
-          // lib/nested/foo.ts becomes nested/foo
-          relative('src', file.slice(0, file.length - extname(file).length)),
-          // The absolute path to the entry file
-          // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
-          fileURLToPath(new URL(file, import.meta.url)),
-        ]),
+        glob.sync('src/**/!(*.stories).{ts,tsx}').map((file) => {
+          return [
+            relative('src', file.slice(0, file.length - extname(file).length)),
+            fileURLToPath(new URL(file, import.meta.url)),
+          ]
+        }),
       ),
     },
   },

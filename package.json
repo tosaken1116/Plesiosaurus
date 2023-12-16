@@ -5,7 +5,7 @@
   "version": "0.5.3",
   "description": "A simple & animate-full UI component library build with vanilla-extract.🍦🩵",
   "main": "./dist/index.js",
-  "types": "./types/src/index.d.ts",
+  "types": "./types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.js"
