@@ -32,7 +32,7 @@ export default defineConfig({
         },
       },
       input: Object.fromEntries(
-        glob.sync('src/**/*.{ts,tsx}').map((file) => [
+        glob.sync('src/**/!(*.stories).{ts,tsx}').map((file) => [
           // The name of the entry point
           // lib/nested/foo.ts becomes nested/foo
           relative('src', file.slice(0, file.length - extname(file).length)),
