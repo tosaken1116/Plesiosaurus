@@ -7,19 +7,18 @@ import clsx from 'clsx'
 
 import { sprinkles } from '../../layout.css'
 
+import { spacingStyle } from './index.css'
 import { joinChildren } from './libs/joinChildren'
 
 import type { Sprinkles } from '../../layout.css'
 
-type StackDirection = Sprinkles['flexDirection']
-type Spacing = Sprinkles['gap']
 type JustifyContent = Sprinkles['justifyContent']
 type AlignItems = Sprinkles['alignItems']
 export type StackProps = {
   component?: React.ElementType
-  direction?: StackDirection
+  direction?: 'row' | 'column'
   divider?: React.ReactNode
-  spacing?: Spacing
+  spacing?: string
   justifyContent?: JustifyContent
   alignItems?: AlignItems
   className?: string
@@ -57,13 +56,14 @@ export const Stack = forwardRef<HTMLElement, StackProps>(
             flexDirection: direction,
             justifyContent: justifyContent,
             alignItems: alignItems,
-            gap: spacing,
           }),
+          spacingStyle({ flexDirection: direction }),
           className,
         )}
         data-testId='stack'
         ref={ref}
         {...props}
+        style={{ '--spacing': spacing }}
       >
         {divider
           ? joinChildren(children, (index: string) => (

@@ -22,7 +22,7 @@ const Divider = forwardRef<HTMLDivElement, DividerProps>(
   ({ className, orientation = 'horizontal', ref, ...props }: DividerProps) => (
     <div
       ref={ref}
-      className={clsx(dividerStyles[orientation], className)}
+      className={clsx(dividerStyles({ orientation }), className)}
       {...props}
       data-testId='divider'
     />
