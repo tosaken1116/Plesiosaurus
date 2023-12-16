@@ -10,6 +10,7 @@ export const fontStyles = styleVariants({
   h5: vars.typography.h5,
   h6: vars.typography.h6,
   p: vars.typography.p,
+  strong: vars.typography.strong,
   'body-large': vars.typography['body-large'],
   'body-medium': vars.typography['body-medium'],
   'body-small': vars.typography['body-small'],

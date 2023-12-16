@@ -104,6 +104,14 @@ export const Backquote: Story = {
   },
 }
 
+export const Strong: Story = {
+  args: {
+    component: 'strong',
+    variant: 'strong',
+    children: 'This is Strong.',
+  },
+}
+
 export const ParagraphWithColor: Story = {
   args: {
     component: 'p',
