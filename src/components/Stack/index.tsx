@@ -91,7 +91,7 @@ export const Stack = forwardRef<HTMLElement, StackProps>(
         data-testId='stack'
         ref={ref}
         {...props}
-        style={{ '--spacing': spacing }}
+        style={{ '--spacing': `${spacing}px` }}
       >
         {divider
           ? joinChildren(children, (index: string) => (

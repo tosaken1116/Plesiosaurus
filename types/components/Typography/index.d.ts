@@ -2,12 +2,13 @@
 import 'modern-normalize/modern-normalize.css';
 import '../../reset.css';
 import { fontStyles } from '../../font.css';
+import type { AnimationArgs } from '../../libs/animation';
 export type TypographyProps = {
     component: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'strong';
     variant: keyof typeof fontStyles;
     children: string;
     className?: string;
-} & React.HTMLAttributes<HTMLHeadingElement> & React.HTMLAttributes<HTMLParagraphElement> & React.HTMLAttributes<HTMLSpanElement>;
+} & React.HTMLAttributes<HTMLHeadingElement> & React.HTMLAttributes<HTMLParagraphElement> & React.HTMLAttributes<HTMLSpanElement> & AnimationArgs;
 /**
  * Typography component for rendering text with different styles and elements.
  *
@@ -28,6 +29,6 @@ declare const Typography: import("react").ForwardRefExoticComponent<{
     variant: keyof typeof fontStyles;
     children: string;
     className?: string | undefined;
-} & import("react").HTMLAttributes<HTMLHeadingElement> & import("react").HTMLAttributes<HTMLParagraphElement> & import("react").HTMLAttributes<HTMLSpanElement> & import("react").RefAttributes<HTMLHeadingElement>>;
+} & import("react").HTMLAttributes<HTMLHeadingElement> & import("react").HTMLAttributes<HTMLParagraphElement> & import("react").HTMLAttributes<HTMLSpanElement> & AnimationArgs & import("react").RefAttributes<HTMLHeadingElement>>;
 export { Typography };
 //# sourceMappingURL=index.d.ts.map
