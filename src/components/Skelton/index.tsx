@@ -4,14 +4,18 @@ import type { CSSProperties } from 'react'
 
 import clsx from 'clsx'
 
+import { resolveAnimation } from '../../libs/animation'
+
 import { skeleton } from './index.css'
+
+import type { AnimationArgs } from '../../libs/animation'
 
 export type SkeltonProps = {
   className?: string
   width: number
   height: number
   radius?: 's' | 'm' | 'l'
-}
+} & AnimationArgs
 
 /**
  * @name Skelton component
@@ -28,10 +32,16 @@ export const Skelton = ({
   width,
   height,
   radius,
-}: SkeltonProps): JSX.Element => (
-  <div
-    className={clsx(skeleton({ radius }), className)}
-    style={{ '--width': `${width}px`, '--height': `${height}px` } as CSSProperties}
-    role='none'
-  />
-)
+  animationProps,
+}: SkeltonProps): JSX.Element => {
+  const { style, className: animationClassName } = resolveAnimation(animationProps ?? {})
+  return (
+    <div
+      className={clsx(skeleton({ radius }), animationClassName, className)}
+      style={
+        { '--width': `${width}px`, '--height': `${height}px`, ...style } as CSSProperties
+      }
+      role='none'
+    />
+  )
+}

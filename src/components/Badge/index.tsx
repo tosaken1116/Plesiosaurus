@@ -4,13 +4,17 @@ import type { ReactNode } from 'react'
 
 import clsx from 'clsx'
 
+import { resolveAnimation } from '../../libs/animation'
+
 import { badgeStyle, containerStyle } from './index.css'
+
+import type { AnimationArgs } from '../../libs/animation'
 
 export type BadgeProps = {
   children: ReactNode
   badgeComponent: ReactNode
   className?: string
-}
+} & AnimationArgs
 
 /**
  * Badge component for displaying content with an associated badge.
@@ -34,9 +38,15 @@ export const Badge = ({
   children,
   badgeComponent,
   className,
-}: BadgeProps): JSX.Element => (
-  <span className={containerStyle}>
-    <span className={clsx(badgeStyle, className)}>{badgeComponent}</span>
-    {children}
-  </span>
-)
+  animationProps,
+}: BadgeProps): JSX.Element => {
+  const { style, className: animationClassName } = resolveAnimation(animationProps ?? {})
+  return (
+    <span className={containerStyle}>
+      <span className={clsx(badgeStyle, animationClassName, className)} style={style}>
+        {badgeComponent}
+      </span>
+      {children}
+    </span>
+  )
+}

@@ -10,7 +10,7 @@ import { resolveAnimation } from '../../libs/animation'
 
 import { button } from './index.css'
 
-import type { AnimationProps } from '../../libs/animation/variant/AnimationFactory'
+import type { AnimationArgs } from '../../libs/animation'
 import type { RecipeVariants } from '@vanilla-extract/recipes'
 
 // TODO: 将来的には削除してそれぞれのanimationを作成する
@@ -18,9 +18,8 @@ type AnimationObjectType = 'border' | 'scaleUp' | 'scaleDown'
 
 export type ButtonProps = RecipeVariants<typeof button> &
   React.HTMLProps<HTMLButtonElement> &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    animationProps?: AnimationProps
-  }
+  React.ButtonHTMLAttributes<HTMLButtonElement> &
+  AnimationArgs
 
 type ButtonPropsWithoutUnnecessaryAttributes = Omit<
   ButtonProps,

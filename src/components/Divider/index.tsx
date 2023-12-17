@@ -4,12 +4,17 @@ import { forwardRef } from 'react'
 
 import clsx from 'clsx'
 
+import { resolveAnimation } from '../../libs/animation'
+
 import { dividerStyles } from './index.css'
+
+import type { AnimationArgs } from '../../libs/animation'
 
 export type DividerProps = {
   orientation?: 'horizontal' | 'vertical'
   className?: string
-} & React.HTMLProps<HTMLDivElement>
+} & React.HTMLProps<HTMLDivElement> &
+  AnimationArgs
 
 /**
  * Divider component for creating horizontal or vertical dividers with customizable styling.
@@ -29,14 +34,27 @@ export type DividerProps = {
  * @returns {JSX.Element} - The JSX element representing the Divider.
  */
 const Divider = forwardRef<HTMLDivElement, DividerProps>(
-  ({ className, orientation = 'horizontal', ref, ...props }: DividerProps) => (
-    <div
-      ref={ref}
-      className={clsx(dividerStyles({ orientation }), className)}
-      {...props}
-      data-testId='divider'
-    />
-  ),
+  ({
+    className,
+    orientation = 'horizontal',
+    animationProps,
+    ref,
+    ...props
+  }: DividerProps) => {
+    const { style, className: animationClassName } = resolveAnimation(
+      animationProps ?? {},
+    )
+
+    return (
+      <div
+        style={style}
+        ref={ref}
+        className={clsx(dividerStyles({ orientation }), animationClassName, className)}
+        {...props}
+        data-testId='divider'
+      />
+    )
+  },
 )
 
 export { Divider }

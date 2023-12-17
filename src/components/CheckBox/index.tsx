@@ -6,6 +6,8 @@ import type { HTMLAttributes, ReactNode } from 'react'
 import clsx from 'clsx'
 import { CheckSquare2 } from 'lucide-react'
 
+import { resolveAnimation } from '../../libs/animation'
+
 import {
   checkContainerStyle,
   containerStyle,
@@ -14,13 +16,16 @@ import {
   labelStyle,
 } from './index.css'
 
+import type { AnimationArgs } from '../../libs/animation'
+
 export type CheckboxProps = {
   className?: string
   customCheckbox?: CustomCheckBox
   checked?: boolean
   label?: ReactNode
   color?: string
-} & HTMLAttributes<HTMLInputElement>
+} & HTMLAttributes<HTMLInputElement> &
+  AnimationArgs
 
 type CustomCheckBox = {
   checked: ReactNode
@@ -60,7 +65,7 @@ const noop = (): void => {}
  * @returns {JSX.Element} - The JSX element representing the Checkbox.
  */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ className, id, customCheckbox, ...props }, ref): JSX.Element => {
+  ({ className, id, customCheckbox, animationProps, ...props }, ref): JSX.Element => {
     const checkedIcon = customCheckbox?.checked ?? (
       <CheckSquare2 fill={props.color || 'aquamarine'} color='gray' />
     )
@@ -68,8 +73,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const uncheckedIcon = customCheckbox?.unchecked ?? <CheckSquare2 color='gray' />
     const handleChange = props.onChange ?? noop
     const [checked, setChecked] = useState(props.checked || false)
+    const { style, className: animationClassName } = resolveAnimation(
+      animationProps ?? {},
+    )
+
     return (
-      <label className={containerStyle}>
+      <label className={clsx(animationClassName, containerStyle)} style={style}>
         <span className={checkContainerStyle}>
           {checked ? (
             <span className={iconStyle}> {checkedIcon}</span>
