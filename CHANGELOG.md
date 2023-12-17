@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.7](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.6...v0.5.7) (2023-12-17)
+
+
+### Bug Fixes
+
+* build files ([7826e99](https://github.com/tosaken1116/Plesiosaurus/commit/7826e99c2562daef4b51d657823220510519b1ed))
+
 ## [0.5.6](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.5...v0.5.6) (2023-12-17)
 
 
