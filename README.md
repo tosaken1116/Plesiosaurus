@@ -53,14 +53,18 @@ export default App
 ```
 
 As it's fully typed, you got a tweet from your IDE if you're missing something necessary.
-![Alt text](image.png)
+<img width="1007" alt="image" src="https://github.com/tosaken1116/Plesiosaurus/assets/74392116/caf2e3af-35a7-499c-a364-5d69c4a10722">
 
 Don't worry if you're not sure what variants are available.@plesiosaurus/ui Components allow you to know what you can put in there!
-![Alt text](image-1.png)
+<img width="852" alt="image-1" src="https://github.com/tosaken1116/Plesiosaurus/assets/74392116/e86057f1-d453-410d-a597-1f37c9cdf073">
 
 Hooray🌟 Now, @plesiosaurus/ui Components are in your hands!
 
-![Alt text](image-3.png)
+
+https://github.com/tosaken1116/Plesiosaurus/assets/74392116/e5fe38cf-148c-4edd-a2bf-2eada5572b14
+
+
+
 
 ## 🌈Technical Features
 
