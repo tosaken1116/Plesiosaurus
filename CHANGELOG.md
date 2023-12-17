@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.6](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.5...v0.5.6) (2023-12-17)
+
+
+### Bug Fixes
+
+* fix squeeze animation style ([b39a0b4](https://github.com/tosaken1116/Plesiosaurus/commit/b39a0b4123b8925172aadd9079845bfdc6d49c51))
+
 ## [0.5.5](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.4...v0.5.5) (2023-12-16)
 
 
