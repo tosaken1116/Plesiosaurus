@@ -1,10 +1,12 @@
 import { genBackGroundColorFadeAnimation } from './BackGroundColorFade'
+import { genFadeAnimation } from './Fade'
 import { genShakeAnimation } from './Shake'
 import { genSlideAnimation } from './Slide'
 import { genSqueezeAnimation } from './Squeeze'
 import { genTextColorAnimation } from './TextColor'
 
 import type { BackGroundColorFadeProps } from './BackGroundColorFade'
+import type { FadeProps } from './Fade'
 import type { ShakeProps } from './Shake'
 import type { SlideProps } from './Slide'
 import type { SqueezeProps } from './Squeeze'
@@ -22,6 +24,7 @@ export type AnimationObject =
   | TextColorProps
   | SqueezeProps
   | ShakeProps
+  | FadeProps
 
 export const AnimationFactory: Record<
   AnimationObject['key'],
@@ -32,4 +35,5 @@ export const AnimationFactory: Record<
   textColor: genTextColorAnimation,
   squeeze: genSqueezeAnimation,
   shake: genShakeAnimation,
+  fade: genFadeAnimation,
 } as const
