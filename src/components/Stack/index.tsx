@@ -85,7 +85,7 @@ export const Stack = forwardRef<HTMLElement, StackProps>(
             justifyContent: justifyContent,
             alignItems: alignItems,
           }),
-          spacingStyle({ flexDirection: direction }),
+          spacingStyle({ flexDirection: `${direction}rem` }),
           className,
         )}
         data-testId='stack'
