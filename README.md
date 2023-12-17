@@ -5,7 +5,7 @@ A simple & animate-full UI component library built with vanilla-extract.🍦🩵
 
 We offer, two official plugins are available:
 
-## 🦖 Configurations - It's a tiny step before you go ahead!
+## 🦖 Configurations - It's a tiny little step before you go ahead!
 
 - Simply add `"resolvePackageJsonExports": false,` in `compilerOptions` in `tsconfig.json` property like this:
 
@@ -25,15 +25,12 @@ You got a fully-typed React UI Component.
 In your app, you're able to use @plesiosaurus/ui Components like so:
 
 ```ts
-import { Button, Typography } from '@plesiosaurus/ui'
+import { Button } from '@plesiosaurus/ui'
 
 function App() {
   return (
     <div>
-      <Button state='secondary'>button</Button>
-      <Typography component='h3' variant='h1'>
-        hoge
-      </Typography>
+      <Button state='secondary'>Label</Button>
     </div>
   )
 }
@@ -49,7 +46,7 @@ Don't worry if you're not sure what variants are available.@plesiosaurus/ui Comp
 
 Hooray🌟 Now, @plesiosaurus/ui Components are in your hands!
 
-![Alt text](image-2.png)
+![Alt text](image-3.png)
 
 ## 🌈Technical Features
 
