@@ -1,5 +1,7 @@
 import { style } from '@vanilla-extract/css'
 
+import { vars } from '../../global.css'
+
 export const toggleButtonInput = style({
   display: 'none',
 })
@@ -11,9 +13,10 @@ export const toggleButtonLabel = style({
   width: '80px',
   height: '40px',
   cursor: 'pointer',
-  background: 'red',
+  background: vars.colors.gray[400],
   borderRadius: '20px',
-  transition: '.3s',
+  transition: '0.3s',
+  boxShadow: `1px 1px 6px ${vars.background.primary}`,
   selectors: {
     '&:after': {
       position: 'absolute',
@@ -26,15 +29,12 @@ export const toggleButtonLabel = style({
       margin: 'auto',
       cursor: 'pointer',
       content: '',
-      background: 'white',
+      background: vars.background.secondary,
       borderRadius: '100%',
       transition: '0.3s',
     },
-    '&:hover': {
-      background: 'blue',
-    },
     '&:has(:checked)': {
-      background: 'blue',
+      background: vars.background.primary,
     },
     '&:has(:checked)::after': {
       right: '2.55em',
