@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/tosaken1116/Plesiosaurus/compare/v0.6.0...v0.6.1) (2023-12-17)
+
+
+### Bug Fixes
+
+* stack spacin ([5c0f8d8](https://github.com/tosaken1116/Plesiosaurus/commit/5c0f8d84cff6652f473df48c0287f5a56934c3d3))
+
 ## [0.6.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.7...v0.6.0) (2023-12-17)
 
 
