@@ -15,5 +15,13 @@ export default meta
 type Story = StoryObj<typeof Input>
 
 export const Default: Story = {
-  args: {},
+  args: { title: 'test' },
+}
+
+export const Close: Story = {
+  args: { title: 'test', close: true },
+}
+
+export const Moving: Story = {
+  args: { title: 'test', moving: true },
 }
