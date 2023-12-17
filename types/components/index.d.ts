@@ -6,6 +6,7 @@ export * from './RadioButtonGroup';
 export * from './Typography';
 export * from './CheckBox';
 export * from './Grid';
+export * from './Switch';
 export * from './Input';
 export * from './Skelton';
 //# sourceMappingURL=index.d.ts.map
