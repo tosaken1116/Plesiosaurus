@@ -1,0 +1,1 @@
+{"version":3,"file":"type.d.ts","sourceRoot":"","sources":["../../../../../../src/libs/animation/variant/Fade/type.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,SAAS,CAAA;AAEjD,MAAM,MAAM,WAAW,GAAG;IACxB,IAAI,CAAC,EAAE,IAAI,GAAG,KAAK,CAAA;CACpB,CAAA;AAED,MAAM,MAAM,SAAS,GAAG;IACtB,GAAG,EAAE,MAAM,CAAA;IACX,MAAM,EAAE,WAAW,GAAG,kBAAkB,CAAA;CACzC,CAAA"}
