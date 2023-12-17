@@ -2,8 +2,8 @@
   "name": "@plesiosaurus/ui",
   "author": "Team Issei Absence",
   "license": "MIT",
-  "version": "0.5.6",
-  "description": "A simple & animate-full UI component library build with vanilla-extract.🍦🩵",
+  "version": "0.6.0",
+  "description": "A simple & animate-full UI component library built with vanilla-extract.🍦🩵",
   "main": "./dist/index.js",
   "types": "./types/index.d.ts",
   "exports": {

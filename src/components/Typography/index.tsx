@@ -5,6 +5,9 @@ import { forwardRef } from 'react'
 import { clsx } from 'clsx'
 
 import { fontStyles } from '../../font.css'
+import { resolveAnimation } from '../../libs/animation'
+
+import type { AnimationArgs } from '../../libs/animation'
 
 export type TypographyProps = {
   component: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'strong'
@@ -13,7 +16,8 @@ export type TypographyProps = {
   className?: string
 } & React.HTMLAttributes<HTMLHeadingElement> &
   React.HTMLAttributes<HTMLParagraphElement> &
-  React.HTMLAttributes<HTMLSpanElement>
+  React.HTMLAttributes<HTMLSpanElement> &
+  AnimationArgs
 
 /**
  * Typography component for rendering text with different styles and elements.
@@ -31,11 +35,28 @@ export type TypographyProps = {
  * @throws {Error} Throws an error if the specified variant is not a valid key in the `fontStyles` object.
  */
 const Typography = forwardRef<HTMLHeadingElement, TypographyProps>(
-  ({ component, variant, children, className, ...props }: TypographyProps, ref) => {
+  (
+    {
+      component,
+      variant,
+      children,
+      className,
+      animationProps,
+      ...props
+    }: TypographyProps,
+    ref,
+  ) => {
     const Component = component
-
+    const { style, className: animationClassName } = resolveAnimation(
+      animationProps ?? {},
+    )
     return (
-      <Component className={clsx(fontStyles[variant], className)} ref={ref} {...props}>
+      <Component
+        className={clsx(fontStyles[variant], animationClassName, className)}
+        ref={ref}
+        style={style}
+        {...props}
+      >
         {children}
       </Component>
     )
