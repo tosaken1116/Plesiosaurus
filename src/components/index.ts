@@ -14,6 +14,6 @@ export * from './Typography'
 
 export * from './CheckBox'
 
-export * from './Grid'
-
 export * from './Skelton'
+
+export * from './Grid'
