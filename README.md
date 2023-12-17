@@ -1,9 +1,8 @@
 # plesiosaurus/ui
 
 A simple & animate-full UI component library built with vanilla-extract.🍦🩵
-**❄️It's fully Vanilla-Essenced React component library!!❄️**
 
-We offer, two official plugins are available:
+**❄️It's fully Vanilla-Essenced React component library!!❄️**
 
 ## 🦖 Configurations - It's a tiny little step before you go ahead!
 
@@ -11,9 +10,9 @@ We offer, two official plugins are available:
 
 ```json
    "compilerOptions": {
-      ...
+      // ...
       "resolvePackageJsonExports": false,
-      ...
+      // ...
    },
 ```
 
