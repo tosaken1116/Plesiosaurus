@@ -85,13 +85,13 @@ export const Stack = forwardRef<HTMLElement, StackProps>(
             justifyContent: justifyContent,
             alignItems: alignItems,
           }),
-          spacingStyle({ flexDirection: `${direction}rem` }),
+          spacingStyle({ flexDirection: direction }),
           className,
         )}
         data-testId='stack'
         ref={ref}
         {...props}
-        style={{ '--spacing': spacing }}
+        style={{ '--spacing': `${spacing}px` }}
       >
         {divider
           ? joinChildren(children, (index: string) => (
