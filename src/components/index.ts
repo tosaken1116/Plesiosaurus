@@ -15,3 +15,5 @@ export * from './CheckBox'
 export * from './Grid'
 
 export * from './Skelton'
+
+export * from './ProgressBar';
