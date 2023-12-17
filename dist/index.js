@@ -1007,7 +1007,7 @@ const Ce = I(
         "data-testId": "stack",
         ref: x,
         ...d,
-        style: { "--spacing": s },
+        style: { "--spacing": `${s}px` },
         children: n ? ee(o, (u) => /* @__PURE__ */ m.jsx(ae, { children: n }, u)) : o
       }
     );
