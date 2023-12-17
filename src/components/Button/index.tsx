@@ -39,7 +39,7 @@ type ButtonPropsWithoutUnnecessaryAttributes = Omit<
  *
  * @param {Object} props - The properties of the Button component.
  * @param {string} props.className - Additional CSS class names for the button.
- * @param {string} props.state - The state of the button (e.g., 'normal', 'hover', 'active').
+ * @param {string} props.state - The state of the button (e.g., 'primary', 'secondary', 'error').
  * @param {string} props.radius - The border-radius of the button.
  * @param {boolean} props.outline - Whether the button has an outline or not.
  * @param {string} props.typography - The typography style of the button text.
