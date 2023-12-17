@@ -6,7 +6,7 @@ const squeezeYKeyframe = keyframes({
     transform: 'scale(1)',
   },
   '80%': {
-    transform: 'scaleX(0.7); scaleY(1.3)',
+    transform: 'scaleX(0.7) scaleY(1.3)',
   },
   '100%': {
     transform: 'scale(1)',
@@ -18,7 +18,7 @@ const squeezeXKeyframe = keyframes({
     transform: 'scale(1)',
   },
   '80%': {
-    transform: 'scaleY(0.7); scaleX(1.3)',
+    transform: 'scaleY(0.7) scaleX(1.3)',
   },
   '100%': {
     transform: 'scale(1)',

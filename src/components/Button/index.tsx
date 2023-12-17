@@ -10,7 +10,7 @@ import { resolveAnimation } from '../../libs/animation'
 
 import { button } from './index.css'
 
-import type { AnimationProps } from '../../libs/animation/variant/AnimationFactory'
+import type { AnimationArgs } from '../../libs/animation'
 import type { RecipeVariants } from '@vanilla-extract/recipes'
 
 // TODO: 将来的には削除してそれぞれのanimationを作成する
@@ -18,9 +18,8 @@ type AnimationObjectType = 'border' | 'scaleUp' | 'scaleDown'
 
 export type ButtonProps = RecipeVariants<typeof button> &
   React.HTMLProps<HTMLButtonElement> &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    animationProps?: AnimationProps
-  }
+  React.ButtonHTMLAttributes<HTMLButtonElement> &
+  AnimationArgs
 
 type ButtonPropsWithoutUnnecessaryAttributes = Omit<
   ButtonProps,
@@ -39,7 +38,7 @@ type ButtonPropsWithoutUnnecessaryAttributes = Omit<
  *
  * @param {Object} props - The properties of the Button component.
  * @param {string} props.className - Additional CSS class names for the button.
- * @param {string} props.state - The state of the button (e.g., 'normal', 'hover', 'active').
+ * @param {string} props.state - The state of the button (e.g., 'primary', 'secondary', 'error').
  * @param {string} props.radius - The border-radius of the button.
  * @param {boolean} props.outline - Whether the button has an outline or not.
  * @param {string} props.typography - The typography style of the button text.

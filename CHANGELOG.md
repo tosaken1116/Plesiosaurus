@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.6.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.7...v0.6.0) (2023-12-17)
+
+
+### Features
+
+* add animation Props to all components ([695102f](https://github.com/tosaken1116/Plesiosaurus/commit/695102fd42c5441485d1ad2c5004ba627262298e))
+
+## [0.5.7](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.6...v0.5.7) (2023-12-17)
+
+
+### Bug Fixes
+
+* build files ([7826e99](https://github.com/tosaken1116/Plesiosaurus/commit/7826e99c2562daef4b51d657823220510519b1ed))
+
+## [0.5.6](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.5...v0.5.6) (2023-12-17)
+
+
+### Bug Fixes
+
+* fix squeeze animation style ([b39a0b4](https://github.com/tosaken1116/Plesiosaurus/commit/b39a0b4123b8925172aadd9079845bfdc6d49c51))
+
 ## [0.5.5](https://github.com/tosaken1116/Plesiosaurus/compare/v0.5.4...v0.5.5) (2023-12-16)
 
 

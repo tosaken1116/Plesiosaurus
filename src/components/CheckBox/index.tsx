@@ -6,6 +6,8 @@ import type { HTMLAttributes, ReactNode } from 'react'
 import clsx from 'clsx'
 import { CheckSquare2 } from 'lucide-react'
 
+import { resolveAnimation } from '../../libs/animation'
+
 import {
   checkContainerStyle,
   containerStyle,
@@ -14,28 +16,56 @@ import {
   labelStyle,
 } from './index.css'
 
+import type { AnimationArgs } from '../../libs/animation'
+
 export type CheckboxProps = {
   className?: string
   customCheckbox?: CustomCheckBox
   checked?: boolean
   label?: ReactNode
   color?: string
-} & HTMLAttributes<HTMLInputElement>
+} & HTMLAttributes<HTMLInputElement> &
+  AnimationArgs
 
 type CustomCheckBox = {
   checked: ReactNode
   unchecked: ReactNode
 }
 const noop = (): void => {}
+
 /**
- * @name Checkbox component
- * Checkboxを表示するコンポーネント
- * @param {number} a - props a
- * @returns {JSX.Element}
- * @example <Checkbox a={1} />
+ * Checkbox component for interactive checkbox input with customizable styling.
+ *
+ * @component
+ * @example
+ * // Example usage of the Checkbox component
+ * <Checkbox
+ *   className="custom-checkbox"
+ *   customCheckbox={{ checked: <CustomCheckedIcon />, unchecked: <CustomUncheckedIcon /> }}
+ *   checked={true}
+ *   label="Enable Feature"
+ *   color="green"
+ *   onChange={(e) => handleCheckboxChange(e)}
+ * />
+ *
+ * @typedef {Object} CheckboxProps
+ * @property {string} [className] - Additional CSS class name for the checkbox container.
+ * @property {CustomCheckBox} [customCheckbox] - Custom icons for the checked and unchecked states.
+ * @property {boolean} [checked] - The current checked state of the checkbox.
+ * @property {React.ReactNode} [label] - The label to be displayed next to the checkbox.
+ * @property {string} [color] - The color of the checkbox (applies to the checked state).
+ * @property {HTMLAttributes<HTMLInputElement>} [props] - Any additional HTML attributes to be passed to the checkbox input.
+ *
+ * @typedef {Object} CustomCheckBox
+ * @property {React.ReactNode} checked - Custom content for the checked state.
+ * @property {React.ReactNode} unchecked - Custom content for the unchecked state.
+ *
+ * @param {CheckboxProps} props - The properties of the Checkbox component.
+ * @param {React.Ref<HTMLInputElement>} ref - React ref for the checkbox input element.
+ * @returns {JSX.Element} - The JSX element representing the Checkbox.
  */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ className, id, customCheckbox, ...props }, ref): JSX.Element => {
+  ({ className, id, customCheckbox, animationProps, ...props }, ref): JSX.Element => {
     const checkedIcon = customCheckbox?.checked ?? (
       <CheckSquare2 fill={props.color || 'aquamarine'} color='gray' />
     )
@@ -43,8 +73,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     const uncheckedIcon = customCheckbox?.unchecked ?? <CheckSquare2 color='gray' />
     const handleChange = props.onChange ?? noop
     const [checked, setChecked] = useState(props.checked || false)
+    const { style, className: animationClassName } = resolveAnimation(
+      animationProps ?? {},
+    )
+
     return (
-      <label className={containerStyle}>
+      <label className={clsx(animationClassName, containerStyle)} style={style}>
         <span className={checkContainerStyle}>
           {checked ? (
             <span className={iconStyle}> {checkedIcon}</span>
