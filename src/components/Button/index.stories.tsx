@@ -22,6 +22,16 @@ export const Primary: Story = {
   args: {
     state: 'primary',
     children: 'Label',
+    animationProps: {
+      hover: {
+        key: 'bgColorFade',
+        option: {
+          duration: '0.3s',
+          delay: '0s',
+          afterColor: 'primary',
+        },
+      },
+    },
   },
 }
 
@@ -29,6 +39,16 @@ export const Secondary: Story = {
   args: {
     state: 'secondary',
     children: 'Label',
+    animationProps: {
+      hover: {
+        key: 'bgColorFade',
+        option: {
+          duration: '0.3s',
+          delay: '0s',
+          afterColor: 'secondary',
+        },
+      },
+    },
   },
 }
 

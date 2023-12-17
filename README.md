@@ -1,8 +1,9 @@
 # plesiosaurus/ui
 
-A simple & animate-full UI component library built with vanilla-extract.🍦🩵
+A simple & animate-full UI component library built with vanilla-extract.🩵
+Perfectly Working with all React-made projects!
 
-**❄️It's fully Vanilla-Essenced React component library!!❄️**
+**❄️🍦It's Fully Vanilla Flavour React component library!!🍦❄️**
 
 ## 🦖 Configurations - It's a tiny little step before you go ahead!
 
@@ -29,7 +30,21 @@ import { Button } from '@plesiosaurus/ui'
 function App() {
   return (
     <div>
-      <Button state='secondary'>Label</Button>
+      <Button
+        state='secondary'
+        animationProps={{
+          hover: {
+            key: 'bgColorFade',
+            option: {
+              duration: '0.3s',
+              delay: '0s',
+              afterColor: 'secondary',
+            },
+          },
+        }}
+      >
+        Label
+      </Button>
     </div>
   )
 }
