@@ -19,3 +19,5 @@ export * from './Switch'
 export * from './Input'
 
 export * from './Skelton'
+
+export * from './BreadCrumbs';
