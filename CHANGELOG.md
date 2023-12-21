@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.6.3...v0.7.0) (2023-12-21)
+
+
+### Features
+
+* add BreadCrumbs Component ([e9ab20d](https://github.com/tosaken1116/Plesiosaurus/commit/e9ab20d1f10226df16ee4017fb62c89703b5cd84))
+
 ## [0.6.3](https://github.com/tosaken1116/Plesiosaurus/compare/v0.6.2...v0.6.3) (2023-12-17)
 
 
