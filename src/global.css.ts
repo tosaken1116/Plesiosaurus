@@ -115,6 +115,9 @@ export const vars = createGlobalTheme(':root', {
     },
   },
   colors: {
+    primary: '#0F172A',
+    secondary: '#ffffff',
+    error: '#DC2626',
     // red, pink, purple, indigo, blue, cyan, teal, green, lime, yellow, orange, brown, gray, coolGray, trueGray, warmGray
     red: {
       100: '#FFEEEE',
