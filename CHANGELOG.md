@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.7.0](https://github.com/tosaken1116/Plesiosaurus/compare/v0.6.3...v0.7.0) (2023-12-21)
+
+
+### Features
+
+* add BreadCrumbs Component ([e9ab20d](https://github.com/tosaken1116/Plesiosaurus/commit/e9ab20d1f10226df16ee4017fb62c89703b5cd84))
+
+## [0.6.3](https://github.com/tosaken1116/Plesiosaurus/compare/v0.6.2...v0.6.3) (2023-12-17)
+
+
+### Bug Fixes
+
+* docs with Japanese ([8b5d226](https://github.com/tosaken1116/Plesiosaurus/commit/8b5d226d865c0bc7966f1d919d64034c99e94a88))
+* 不要物削除 ([d14d74f](https://github.com/tosaken1116/Plesiosaurus/commit/d14d74f196c30508dd93006b4d99ab7b38b63bed))
+
 ## [0.6.2](https://github.com/tosaken1116/Plesiosaurus/compare/v0.6.1...v0.6.2) (2023-12-17)
 
 
