@@ -114,7 +114,7 @@
     "pinst": "^3.0.0",
     "storybook": "^7.5.3",
     "typescript": "^5.0.2",
-    "vite": "5.0.10",
+    "vite": "5.0.11",
     "vite-plugin-lib-inject-css": "^1.3.0",
     "vitest": "^1.0.1"
   },
